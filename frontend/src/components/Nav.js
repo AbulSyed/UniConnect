@@ -2,7 +2,7 @@
 import { Search, Chat, Person, ExitToApp } from '@material-ui/icons'
 
 // Styles
-import '../styles/nav.css'
+import '../styles/nav.scss'
 
 const Nav = () => {
     return ( 
