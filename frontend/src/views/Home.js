@@ -1,10 +1,12 @@
+// Components
+import Nav from '../components/Nav'
+
+// Styles
 import '../styles/home.css'
 
 const Home = () => {
     return ( 
-        <div>
-            Home page
-        </div>
+        <Nav />
      );
 }
  
