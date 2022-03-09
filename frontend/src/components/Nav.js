@@ -7,8 +7,8 @@ import '../styles/nav.scss'
 const Nav = () => {
     return ( 
         <div className="nav">
-            <div className="logo">
-                <span className="uni">Uni</span><span className="connect">Connect</span>
+            <div>
+                <img className="logo" alt="UniConnect" src={ require('../logo/logo2.png') } />
             </div>
             <div className="search">
                 <div className="search-icon">
