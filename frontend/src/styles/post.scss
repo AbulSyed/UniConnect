@@ -1,0 +1,62 @@
+.post {
+    padding: 2rem;
+    margin: 1.5rem 0;
+    background: #fff;
+    border-radius: 0.4rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    
+    .post-toolbar {
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .img-name {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .postFormImg {
+                margin-right: 0.625rem;
+                width: 3.125rem;
+                height: 3.125rem;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+        }
+        .delete {
+            cursor: pointer;
+            transition: all .2s;
+    
+            &:hover {
+                color: rgb(119, 119, 119);
+            }
+        }
+    }
+
+    .post-photo {
+        width: 25rem;
+        height: 25rem;
+        margin-left: 25%;
+    }
+    .post-text {
+        color: gray;
+        padding: .7rem 0;
+        font-size: .8rem;
+        font-weight: 500;
+    }
+    .post-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .like {
+            cursor: pointer;
+            transition: all .2s;
+    
+            &:hover {
+                color: #2446f5;
+            }
+        }
+    }
+}
