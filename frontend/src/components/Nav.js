@@ -1,5 +1,5 @@
 // Material icons
-import { Search, Chat, Person, ExitToApp } from '@material-ui/icons'
+import { Search, Forum, AccountBox, ExitToApp } from '@material-ui/icons'
 
 // Styles
 import '../styles/nav.scss'
@@ -16,8 +16,8 @@ const Nav = () => {
                 </div>
             </div>
             <ul className="other">
-                <li><Chat /></li>
-                <li><Person /></li>
+                <li><Forum /></li>
+                <li><AccountBox /></li>
                 <li><ExitToApp /></li>
             </ul>
         </div>

@@ -6,7 +6,7 @@
     top: 3.125rem;
 
     .container {
-        padding: 2.5rem;
+        margin: 2.5rem;
 
         .heading {
             margin-bottom: 0.625rem;
@@ -26,9 +26,10 @@
                 margin-bottom: 0.9rem;
                 border-radius: 0.625rem;
                 transition: all .8s;
-            }
-            .connectionItem:hover {
-                background-color: rgb(214, 214, 214);
+
+                &:hover {
+                    background-color: rgb(214, 214, 214);
+                }
             }
             .connectionImg {
                 border-radius: 50%;
