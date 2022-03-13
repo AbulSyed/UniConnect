@@ -1,8 +1,8 @@
-import Home from './views/Home'
+import Account from './views/Account'
 
 function App() {
   return (
-    <Home />
+    <Account />
   );
 }
 

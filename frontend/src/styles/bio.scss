@@ -1,0 +1,57 @@
+.bio {
+    margin-top: 2.5rem;
+    padding: 1rem;
+    background: #fff;
+    height: 10rem;
+    border-radius: 0.625rem;
+    margin-left: -5rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+    position: relative;
+
+    .edit {
+        position: absolute;
+        left: 330px;
+        top: 5px;
+        color: gray;
+        cursor: pointer;
+        transition: all .7s;
+
+        &:hover {
+            color: rgb(109, 109, 109);
+        }
+    }
+
+    p {
+        padding: .7rem 0;
+    }
+}
+
+.bio-form {
+    .form {
+        display: flex;
+        flex-direction: column;
+
+        input {
+            padding: .5rem;
+            margin: 1rem 0;
+        }
+
+        .postFormBtn {
+            margin-right: 1.25rem;
+            background-color: rgb(1, 46, 129);
+            border-radius: .3rem;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            padding: .4rem;
+            color: rgb(255, 255, 255);
+            transition: all .6s;
+
+            &:hover {
+                background-color: rgb(3, 59, 182);
+            }
+        }
+    }
+}

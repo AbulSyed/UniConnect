@@ -1,0 +1,55 @@
+.account {
+  display: flex;
+
+  .container {
+    flex: 9;
+
+    .accountUpper {
+      .accountCover {
+        height: 20rem;
+        position: relative;
+
+        .accountCoverPic {
+          height: 16rem;
+          object-fit: cover;
+          width: 100%;
+        }
+        
+        .accountUserPic {
+          position: absolute;
+          width: 9.4rem;
+          height: 9.4rem;
+          border-radius: 50%;
+          object-fit: cover;
+          left: 0;
+          right: 0;
+          margin: auto;
+          top: 10.3rem;
+          border: 4px solid rgb(243, 241, 241);
+        }
+
+        .uploadIcon {
+          position: absolute;
+          left: 54%;
+          top: 89%;
+          color: rgb(20, 20, 20);
+          cursor: pointer;
+        }
+      }
+      
+      .accountUser {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .accountUserName {
+          font-size: 1.5rem;
+        }
+      }
+    }
+    
+    .accountLower {
+      display: flex;
+    }
+  }
+}
