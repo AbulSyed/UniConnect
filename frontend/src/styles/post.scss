@@ -24,6 +24,12 @@
                 object-fit: cover;
             }
         }
+
+        .postDate {
+            color: gray;
+            font-size: .8rem;
+        }
+
         .delete {
             cursor: pointer;
             transition: all .2s;

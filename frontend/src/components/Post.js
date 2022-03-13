@@ -12,7 +12,7 @@ const Post = () => {
                     <img src="https://i.pinimg.com/originals/dd/d5/b2/ddd5b2f90e660eb4f881a59c416f3ac9.jpg" className="postFormImg" alt="" />
                     <h3 className="posted-by">Abul</h3>
                 </div>
-                <p>Posted 5 days ago</p>
+                <p className="postDate">Posted 5 days ago</p>
                 <div className="delete">
                     <Delete />
                 </div>
