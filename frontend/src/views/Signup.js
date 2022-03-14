@@ -11,7 +11,7 @@ const Signup = () => {
                 <div className="logo">
                     <img alt="UniConnect" src={ require('../logo/logo2.png') } />
                 </div>
-                <h1 className="title">Web application connecting like-minded individuals</h1>
+                <h1 className="title">Web application connecting like-minded students</h1>
             </div>
             <form>
                 <input type="text" required placeholder="name" className="signupInput" />
