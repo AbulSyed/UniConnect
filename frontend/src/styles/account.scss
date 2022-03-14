@@ -5,11 +5,11 @@
     flex: 9;
 
     .accountUpper {
-      .accountCover {
+      .accountBanner {
         height: 20rem;
         position: relative;
 
-        .accountCoverPic {
+        .accountBannerPic {
           height: 16rem;
           object-fit: cover;
           width: 100%;
@@ -19,10 +19,10 @@
           position: absolute;
           width: 9.4rem;
           height: 9.4rem;
-          border-radius: 50%;
           object-fit: cover;
-          left: 0;
+          border-radius: 50%;
           right: 0;
+          left: 0;
           margin: auto;
           top: 10.3rem;
           border: 4px solid rgb(243, 241, 241);
@@ -43,6 +43,7 @@
         align-items: center;
 
         .accountUserName {
+          margin-top: .5rem;
           font-size: 1.5rem;
         }
       }
