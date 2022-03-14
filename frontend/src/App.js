@@ -1,8 +1,8 @@
-import Account from './views/Account'
+import Signin from './views/Signin'
 
 function App() {
   return (
-    <Account />
+    <Signin />
   );
 }
 
