@@ -2,11 +2,11 @@
 import { Input } from '@material-ui/icons'
 
 // Styles
-import '../styles/signin.scss'
+import '../styles/signup.scss'
 
-const Signin = () => {
+const Signup = () => {
     return ( 
-        <div class="signin">
+        <div class="signup">
             <div class="top">
                 <div className="logo">
                     <img alt="UniConnect" src={ require('../logo/logo2.png') } />
@@ -14,17 +14,18 @@ const Signin = () => {
                 <h1 className="title">Web application connecting like-minded individuals</h1>
             </div>
             <form>
-                <input type="email" required placeholder="email" className="loginInput" />
-                <input type="password" required placeholder="password" className="loginInput" />
+                <input type="text" required placeholder="name" className="signupInput" />
+                <input type="email" required placeholder="email" className="signupInput" />
+                <input type="password" required placeholder="password" className="signupInput" />
                 <button>
                     <Input />
                 </button>
             </form>
             <div className="bottom">
-                <p>New here? Sign Up</p>
+                <p>Already registered? Sign In</p>
             </div>
         </div>
      );
 }
  
-export default Signin;
+export default Signup;
