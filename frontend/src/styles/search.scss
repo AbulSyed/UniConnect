@@ -1,0 +1,33 @@
+.container {
+  padding: 3rem;
+
+  .profiles {
+    display: flex;
+    flex-direction: column;
+
+    .profile {
+      background: hsl(0, 0%, 87%);
+      border-radius: .625rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      padding: 1.5rem;
+
+      .profile-pic {
+        border-radius: .625rem;
+        height: 12.5rem;
+      }
+
+      .name {
+        font-size: 3rem;
+      }
+
+      .symbol {
+        font-size: 3rem;
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -1,8 +1,8 @@
-import Home from './views/Home'
+import Search from './views/Search'
 
 function App() {
   return (
-    <Home />
+    <Search />
   );
 }
 
