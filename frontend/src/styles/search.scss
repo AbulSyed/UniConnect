@@ -17,7 +17,7 @@
 
       .profile-pic {
         border-radius: .625rem;
-        height: 12.5rem;
+        height: 8rem;
       }
 
       .name {
@@ -25,8 +25,13 @@
       }
 
       .symbol {
-        font-size: 3rem;
+        font-size: 4rem;
         cursor: pointer;
+        transition: all .6s;
+
+        &:hover {
+          color: gray;
+        }
       }
     }
   }
