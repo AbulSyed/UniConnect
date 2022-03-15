@@ -21,7 +21,7 @@ const Signin = () => {
                 </button>
             </form>
             <div className="bottom">
-                <p>New here? Sign Up</p>
+                <p>New here? <strong>Sign Up</strong></p>
             </div>
         </div>
      );

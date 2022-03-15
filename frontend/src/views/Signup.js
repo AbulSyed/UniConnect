@@ -22,7 +22,7 @@ const Signup = () => {
                 </button>
             </form>
             <div className="bottom">
-                <p>Already registered? Sign In</p>
+                <p>Already registered? <strong>Sign In</strong></p>
             </div>
         </div>
      );
