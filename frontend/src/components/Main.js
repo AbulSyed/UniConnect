@@ -1,5 +1,4 @@
 // Components
-import PostForm from './PostForm'
 import Post from './Post'
 
 // Styles
@@ -9,7 +8,6 @@ const Main = () => {
     return ( 
         <div className="main">
             <div className="container">
-                <PostForm />
                 <Post />
             </div>
         </div>

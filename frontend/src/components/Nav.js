@@ -1,5 +1,5 @@
 // Material icons
-import { Search, Forum, AccountBox, ExitToApp } from '@material-ui/icons'
+import { Search, CameraAlt, Forum, AccountBox, ExitToApp } from '@material-ui/icons'
 
 // Styles
 import '../styles/nav.scss'
@@ -16,6 +16,7 @@ const Nav = () => {
                 </div>
             </div>
             <ul className="other">
+                <li><CameraAlt /></li>
                 <li><Forum /></li>
                 <li><AccountBox /></li>
                 <li><ExitToApp /></li>
