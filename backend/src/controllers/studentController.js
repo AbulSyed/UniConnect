@@ -18,7 +18,7 @@ const student_signin = async (req, res) => {
     const { email, password } = req.body
 
     try {
-        // if student exists and password matches, student object will be sent back to frontend along with jwt
+        // if student email exists and password matches, student object will be sent back to frontend along with jwt
         const student = await Student.findStudent(email, password)
         const jwt = await student.generateJwt()
         res.status(200).send({ student, jwt })
