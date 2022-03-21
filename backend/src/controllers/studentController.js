@@ -1,5 +1,7 @@
 const Student = require('../models/student')
 
+// main business logic here in controller
+
 const student_signup = async (req, res) => {
     // creating new instance of student from form fields
     const student = new Student(req.body)
@@ -9,7 +11,7 @@ const student_signup = async (req, res) => {
         await student.save()
         const jwt = await student.generateJwt()
         res.status(201).send({ student, jwt })
-    }catch(err){
+    } catch (err) {
         res.status(400).send(err)
     }
 }
@@ -22,12 +24,81 @@ const student_signin = async (req, res) => {
         const student = await Student.findStudent(email, password)
         const jwt = await student.generateJwt()
         res.status(200).send({ student, jwt })
-      }catch(err){
+    } catch (err) {
         res.status(400).send(err.message)
+    }
+}
+
+const student_get_all = async (req, res) => {
+    try {
+        // getting all students
+        const students = await Student.find({})
+        res.status(200).send(students)
+    } catch (err) {
+        res.status(500).send(err)
+    }
+}
+
+const student_get = async (req, res) => {
+    try {
+        // getting student by id
+        const student = await Student.findById(req.params.id)
+        res.status(200).send(student)
+    } catch (err) {
+        res.status(500).send(err)
+    }
+}
+
+const student_update = async (req, res) => {
+    try {
+        // updating student by id
+        const student = await Student.findByIdAndUpdate(req.params.id, req.body, {
+            new: true
+        })
+        res.status(201).send(student)
+    } catch (err) {
+        res.status(400).send(err)
+    }
+}
+
+const student_add_friend = async (req, res) => {
+    try {
+        const currStudent = await Student.findById(req.body.studentId)
+
+        // add user to friends array if not already in there
+        if(!currStudent.friends.includes(req.params.id)){
+            await currStudent.updateOne({ $push: {
+                friends: req.params.id
+            } })
+            res.status(200).send('Friend added')
+        }
+    } catch (err) {
+        res.status(400).send(err)
+    }
+}
+
+const student_remove_friend = async (req, res) => {
+    try {
+        const currStudent = await Student.findById(req.body.studentId)
+
+        // remove user from friends array if it exists there
+        if(currStudent.friends.includes(req.params.id)){
+            await currStudent.updateOne({ $pull: {
+                friends: req.params.id
+            } })
+            res.status(200).send('Friend removed')
+        }
+    } catch (err) {
+        res.status(400).send(err)
     }
 }
 
 module.exports = {
     student_signup,
     student_signin,
+    student_get_all,
+    student_get,
+    student_update,
+    student_add_friend,
+    student_remove_friend,
 }

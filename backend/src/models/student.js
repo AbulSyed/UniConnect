@@ -19,10 +19,12 @@ const studentSchema = new mongoose.Schema({
     },
     studentImage: {
       type: String,
+	  // setting default image which can be updated later on by user
       default: 'https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg'
     },
     bannerImage: {
       type: String,
+	  // setting default image which can be updated later on by user
       default: 'https://www.sportanddev.org/sites/default/files/styles/spor_banner_cropped_style/public/default_images/default-organization-cover_1.png?itok=uhQ_5F9k'
     },
     friends: {
@@ -51,13 +53,13 @@ const studentSchema = new mongoose.Schema({
 
 /*
 
-	NOTE: CODE IN LINES 61-88
+	NOTE: CODE IN LINES 63-90
 
 	The code written below has been modified and reused from a previous API I built: https://github.com/AbulSyed/TaskManagerAPI/blob/main/src/models/user.js
 
 */
 
-// hashing password before it's saved in database
+// hashing password before it's saved or updated in database
 studentSchema.pre('save', async function(next){
 	if(this.isModified('password')){
 	  this.password = await bcryptjs.hash(this.password, 8)
