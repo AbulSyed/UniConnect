@@ -8,6 +8,7 @@ const port = process.env.PORT
 
 // parse incoming JSON
 app.use(express.json())
+// register routes
 app.use('/api', studentRoute)
 
 app.listen(port, () => {

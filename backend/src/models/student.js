@@ -1,7 +1,8 @@
 const mongoose = require('mongoose')
+const bcryptjs = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 
 // creating student user object to be stored in the database
-
 const studentSchema = new mongoose.Schema({
     name: {
       type: String,
@@ -45,9 +46,47 @@ const studentSchema = new mongoose.Schema({
       default: ''
     }
   }, {
-    timestamps: true
+	timestamps: true
 })
 
-const student = mongoose.model('student', studentSchema)
+/*
 
-module.exports = student
+	NOTE: CODE IN LINES 61-88
+
+	The code written below has been modified and reused from a previous API I built: https://github.com/AbulSyed/TaskManagerAPI/blob/main/src/models/user.js
+
+*/
+
+// hashing password before it's saved in database
+studentSchema.pre('save', async function(next){
+	if(this.isModified('password')){
+	  this.password = await bcryptjs.hash(this.password, 8)
+	}
+
+	next()
+})
+
+// generating jwt to be used on frontend
+studentSchema.methods.generateJwt = async function(){
+	const token = jwt.sign({ _id: this._id.toString() }, process.env.JWT_SECRET)
+	return token
+}
+
+// returning student object if exists & correct password is supplied
+studentSchema.statics.findStudent = async (email, password) => {
+	const student = await Student.findOne({ email })
+	if(!student){
+	  throw new Error('Invalid user credentials')
+	}
+
+	const validPassword = await bcryptjs.compare(password, student.password)
+	if(!validPassword){
+	  throw new Error('Invalid user credentials')
+	}
+
+	return student
+}
+
+const Student = mongoose.model('student', studentSchema)
+
+module.exports = Student
