@@ -32,16 +32,16 @@ const post_like = async (req, res) => {
     try {
         const post = await Post.findById(req.params.id)
 
-        if(post.likes.includes(req.body.studentId)){
-            // remove student id to post likes array
+        if(post.thumbsUp.includes(req.body.studentId)){
+            // remove student id to post thumbsUp array
             await post.updateOne({ $pull: 
-                { likes: req.body.studentId }
+                { thumbsUp: req.body.studentId }
             })
             res.status(200).send('Disliked')
         }else{
-            // add student id to post likes array
+            // add student id to post thumbsUp array
             await post.updateOne({ $push: 
-                { likes: req.body.studentId }
+                { thumbsUp: req.body.studentId }
             })
             res.status(200).send('Liked')
         }

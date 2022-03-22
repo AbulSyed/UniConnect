@@ -12,7 +12,7 @@ const postSchema = new mongoose.Schema({
   pictureUrl: {
     type: String
   },
-  likes: {
+  thumbsUp: {
     type: Array,
     default: []
   }
