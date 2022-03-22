@@ -12,7 +12,7 @@ const post_create = async (req, res) => {
         // saving to db
         await post.save()
         res.status(201).send(post)
-    }catch(err){
+    } catch (err) {
         res.status(400).send(err)
     }
 }
@@ -22,7 +22,7 @@ const post_delete = async (req, res) => {
     try {
         await Post.findByIdAndDelete(req.params.id)
         res.status(204).send('Post deleted')
-    }catch(err){
+    } catch (err) {
         res.status(400).send(err)
     }
 }
@@ -45,7 +45,7 @@ const post_like = async (req, res) => {
             })
             res.status(200).send('Liked')
         }
-    }catch(err){
+    } catch (err) {
         res.status(400).send(err)
     }
 }
@@ -64,7 +64,7 @@ const post_timeline = async (req, res) => {
             })
       )
       res.status(200).send(studentPosts.concat(...postOfFriends))
-    }catch(err){
+    } catch (err) {
       res.status(400).send(err)
     }
 }
@@ -74,7 +74,7 @@ const post_account = async (req, res) => {
     try {
         const posts = await Post.find({ studentId: req.params.id })
         res.status(200).send(posts)
-    }catch(err){
+    } catch (err) {
         res.status(400).send(err)
     }
 }
