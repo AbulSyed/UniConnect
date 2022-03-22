@@ -21,7 +21,30 @@ const post_create = async (req, res) => {
 const post_delete = async (req, res) => {
     try {
         await Post.findByIdAndDelete(req.params.id)
-        res.status(200).send('Post deleted')
+        res.status(204).send('Post deleted')
+    }catch(err){
+        res.status(400).send(err)
+    }
+}
+
+// liking and unliking a post
+const post_like = async (req, res) => {
+    try {
+        const post = await Post.findById(req.params.id)
+
+        if(post.likes.includes(req.body.studentId)){
+            // remove student id to post likes array
+            await post.updateOne({ $pull: 
+                { likes: req.body.studentId }
+            })
+            res.status(200).send('Disliked')
+        }else{
+            // add student id to post likes array
+            await post.updateOne({ $push: 
+                { likes: req.body.studentId }
+            })
+            res.status(200).send('Liked')
+        }
     }catch(err){
         res.status(400).send(err)
     }
@@ -41,4 +64,5 @@ module.exports = {
     post_create,
     post_delete,
     post_account,
+    post_like,
 }
