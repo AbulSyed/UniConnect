@@ -50,6 +50,25 @@ const post_like = async (req, res) => {
     }
 }
 
+// get timeline posts - (current student posts + other student posts that you are friends with)
+const post_timeline = async (req, res) => {
+    try {
+        // get the students posts
+        const student = await Student.findById(req.params.id)
+        const studentPosts = await Post.find({ studentId: req.params.id })
+
+        // get posts of friends
+        const postOfFriends = await Promise.all(
+            student.friends.map(curr => {
+                return Post.find({ studentId: curr })
+            })
+      )
+      res.status(200).send(studentPosts.concat(...postOfFriends))
+    }catch(err){
+      res.status(400).send(err)
+    }
+}
+
 // get all posts by user to be displayed on user account
 const post_account = async (req, res) => {
     try {
@@ -65,4 +84,5 @@ module.exports = {
     post_delete,
     post_account,
     post_like,
+    post_timeline
 }

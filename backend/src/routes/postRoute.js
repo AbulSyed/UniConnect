@@ -7,6 +7,7 @@ const postController = require('../controllers/postController')
 router.post('/posts', postController.post_create)
 router.delete('/posts/:id', postController.post_delete)
 router.patch('/posts/:id/like', postController.post_like)
+router.get('/posts/:id', postController.post_timeline)
 router.get('/posts/account/:id', postController.post_account)
 
 module.exports = router

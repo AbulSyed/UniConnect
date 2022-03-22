@@ -102,5 +102,5 @@ module.exports = {
     student_get,
     student_update,
     student_add_friend,
-    student_remove_friend,
+    student_remove_friend
 }
