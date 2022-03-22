@@ -63,11 +63,12 @@ const student_update = async (req, res) => {
 
 const student_add_friend = async (req, res) => {
     try {
-        const currStudent = await Student.findById(req.body.studentId)
+        // current student id to be passed in body of request
+        const student = await Student.findById(req.body.studentId)
 
         // add user to friends array if not already in there
-        if(!currStudent.friends.includes(req.params.id)){
-            await currStudent.updateOne({ $push: {
+        if(!student.friends.includes(req.params.id)){
+            await student.updateOne({ $push: {
                 friends: req.params.id
             } })
             res.status(200).send('Friend added')
@@ -79,11 +80,12 @@ const student_add_friend = async (req, res) => {
 
 const student_remove_friend = async (req, res) => {
     try {
-        const currStudent = await Student.findById(req.body.studentId)
+        // current student id to be passed in body of request
+        const student = await Student.findById(req.body.studentId)
 
         // remove user from friends array if it exists there
-        if(currStudent.friends.includes(req.params.id)){
-            await currStudent.updateOne({ $pull: {
+        if(student.friends.includes(req.params.id)){
+            await student.updateOne({ $pull: {
                 friends: req.params.id
             } })
             res.status(200).send('Friend removed')
