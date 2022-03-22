@@ -50,8 +50,8 @@ const post_like = async (req, res) => {
     }
 }
 
-// get timeline posts - (current student posts + other student posts that you are friends with)
-const post_timeline = async (req, res) => {
+// get feed - (current student posts + other student posts that you are friends with)
+const post_feed = async (req, res) => {
     try {
         // get the students posts
         const student = await Student.findById(req.params.id)
@@ -84,5 +84,5 @@ module.exports = {
     post_delete,
     post_account,
     post_like,
-    post_timeline
+    post_feed
 }
