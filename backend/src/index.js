@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 require('./database/db')
 const studentRoute = require('./routes/studentRoute')
 const postRoute = require('./routes/postRoute')
@@ -9,6 +10,7 @@ const port = process.env.PORT
 
 // parse incoming JSON
 app.use(express.json())
+app.use(cors())
 // register routes
 app.use('/api', studentRoute)
 app.use('/api', postRoute)

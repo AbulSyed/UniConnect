@@ -4,7 +4,7 @@ import '../styles/connections.scss'
 const Connections = () => {
     return ( 
         <div className="connections">
-            <div className="container">
+            <div className="contain">
                 <h1 className="heading">Connections</h1>
                 <ul className="connectionsList">
                     <li className="connectionItem">
