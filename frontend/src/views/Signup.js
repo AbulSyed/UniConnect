@@ -1,13 +1,14 @@
 // Components
 import { Input } from '@material-ui/icons'
+import { Link } from 'react-router-dom'
 
 // Styles
 import '../styles/signup.scss'
 
 const Signup = () => {
     return ( 
-        <div class="signup">
-            <div class="top">
+        <div className="signup">
+            <div className="top">
                 <div className="logo">
                     <img alt="UniConnect" src={ require('../logo/logo2.png') } />
                 </div>
@@ -22,7 +23,7 @@ const Signup = () => {
                 </button>
             </form>
             <div className="bottom">
-                <p>Already registered? <strong>Sign In</strong></p>
+                <p>Already registered? <strong><Link to="/signin" className="link">Sign In</Link></strong></p>
             </div>
         </div>
      );
