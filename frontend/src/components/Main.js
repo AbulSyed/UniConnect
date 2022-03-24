@@ -7,12 +7,14 @@ import '../styles/main.scss'
 import { useState, useEffect } from 'react'
 import api from '../axios/api'
 
-const Main = () => {
+const Main = ({ id }) => {
     const [timeline, setTimeline] = useState([])
 
     // get timeline post for logged in user
-    const getTimeline = async () => {
-        const res = await api.get('/posts/6238af302975ad5b4bca0e96')
+    const getTimeline = async (id) => {
+        const res = id ?
+        await api.get(`/posts/account/${id}`) :
+        await api.get('/posts/6238af302975ad5b4bca0e96')
         setTimeline(res.data)
         // setTimeline(
         //     res.data.sort((p1, p2) => {
@@ -22,8 +24,8 @@ const Main = () => {
     }
     
     useEffect(() => {
-        getTimeline();
-    }, []);
+        getTimeline(id)
+    }, [id])
 
     return ( 
         <div className="main">

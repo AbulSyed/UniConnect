@@ -1,17 +1,18 @@
 .bio {
-    margin-top: 2.5rem;
+    margin-top: 4rem;
     padding: 1rem;
     background: #fff;
     height: 10rem;
     border-radius: 0.625rem;
     margin-left: -5rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    min-width: 350px;
 
     position: relative;
 
     .edit {
         position: absolute;
-        left: 330px;
+        left: 352px;
         top: 5px;
         color: gray;
         cursor: pointer;
@@ -35,13 +36,13 @@
         input {
             padding: .5rem;
             margin: 1rem 0;
+            width: 200px;
         }
 
         .postFormBtn {
-            margin-right: 1.25rem;
             background-color: rgb(1, 46, 129);
             border-radius: .3rem;
-            width: 100%;
+            width: 225px;
             border: none;
             cursor: pointer;
             font-weight: 500;

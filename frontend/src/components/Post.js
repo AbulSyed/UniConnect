@@ -7,6 +7,7 @@ import '../styles/post.scss'
 import { useState, useEffect } from 'react'
 import api from '../axios/api'
 import { formatDistanceToNow } from 'date-fns'
+import { Link } from 'react-router-dom';
 
 const Post = ({ post }) => {
     const [student, setStudent] = useState([])
@@ -19,14 +20,16 @@ const Post = ({ post }) => {
     }
     
     useEffect(() => {
-        getStudent();
-    }, []);
+        getStudent()
+    }, [])
 
     return ( 
         <div className="post">
             <div className="post-toolbar">
                 <div className="img-name">
-                    <img src={ student.studentImage } className="postFormImg" alt="" />
+                    <Link to={ `/account/${student._id}` }>
+                        <img src={ student.studentImage } className="postFormImg" alt="" />
+                    </Link>
                     <h3 className="posted-by">{ student.name }</h3>
                 </div>
                 <p className="postDate">{ formatDistanceToNow(new Date(post.createdAt), { addSuffix: true }) }</p>
