@@ -30,9 +30,9 @@ const Signup = () => {
                 <h1 className="title">Web application connecting like-minded students</h1>
             </div>
             <form onSubmit={ handleSignup }>
-                <input type="text" required placeholder="name" className="signupInput" ref={ name } />
-                <input type="email" required placeholder="email" className="signupInput" ref={ email } />
-                <input type="password" required placeholder="password" className="signupInput" ref={ password } />
+                <input type="text" required placeholder="name" ref={ name } />
+                <input type="email" required placeholder="email" ref={ email } />
+                <input type="password" required placeholder="password" ref={ password } />
                 <button>
                     <Input />
                 </button>

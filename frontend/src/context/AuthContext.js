@@ -4,7 +4,7 @@ import api from '../axios/api'
 const authReducer = (state, action) => {
   switch(action.type){
     case 'return_error':
-        return { ...state, errorMessage: action.payload }
+        return { ...state, errMsg: action.payload }
     case 'signin':
         return { error: '', student: action.payload }
     case 'signup':
@@ -23,7 +23,7 @@ const signin = dispatch => {
             // update student state with response from API
             dispatch({ type: 'signin', payload: res.data.student })
         }catch(err){
-            dispatch({ type: 'return_error', payload: 'signin failed' })
+            dispatch({ type: 'return_error', payload: 'User login failed' })
         }
     }
 }
@@ -35,7 +35,7 @@ const signup = dispatch => {
             // update student state with response from API
             dispatch({ type: 'signup', payload: res.data.student })
         }catch(err){
-            dispatch({ type: 'return_error', payload: 'signup failed' })
+            dispatch({ type: 'return_error', payload: 'User registration failed' })
         }
     }
 }
@@ -51,7 +51,7 @@ const signout = dispatch => {
 }
 
 export const { Context, Provider } = createContext(authReducer, { signin, signup, signout }, {
-  student: null,
-  token: null,
-  error: ''
+    student: null,
+    token: null,
+    error: ''
 })

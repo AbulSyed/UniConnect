@@ -29,8 +29,9 @@ const Signin = () => {
                 <h1 className="title">Web application connecting like-minded students</h1>
             </div>
             <form onSubmit={ handleSignin }>
-                <input type="email" required placeholder="email" className="loginInput" ref={ email } />
-                <input type="password" required placeholder="password" className="loginInput" ref={ password } />
+                <input type="email" required placeholder="email" ref={ email } />
+                <input type="password" required placeholder="password" ref={ password } />
+                <div className="err">{ state.errMsg }</div>
                 <button>
                     <Input />
                 </button>
