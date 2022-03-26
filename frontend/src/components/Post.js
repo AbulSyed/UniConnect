@@ -7,8 +7,8 @@ import '../styles/post.scss'
 import { useState, useEffect, useContext } from 'react'
 import api from '../axios/api'
 import { formatDistanceToNow } from 'date-fns'
-import { Link } from 'react-router-dom';
-import { Context as AuthContext } from '../context/AuthContext';
+import { Link } from 'react-router-dom'
+import { Context as AuthContext } from '../context/AuthContext'
 
 const Post = ({ post }) => {
     const [student, setStudent] = useState([])
@@ -25,7 +25,7 @@ const Post = ({ post }) => {
         getStudent()
     }, [])
 
-    const { state } = useContext(AuthContext);
+    const { state } = useContext(AuthContext)
 
     // like/dislike a post
     const handleThumbsUp = async () => {
@@ -44,9 +44,14 @@ const Post = ({ post }) => {
                     <h3 className="posted-by">{ student.name }</h3>
                 </div>
                 <p className="postDate">{ formatDistanceToNow(new Date(post.createdAt), { addSuffix: true }) }</p>
-                <div className="delete">
-                    <Delete />
-                </div>
+                {/* show delete icon, only if users owns the post */}
+                {
+                    state.student._id === post.studentId ? 
+
+                    <div className="delete">
+                        <Delete />
+                    </div> : null
+                }
             </div>
             <hr />
             <p className="post-text">{ post.text }</p>

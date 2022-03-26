@@ -4,17 +4,20 @@ import Post from './Post'
 // Styles
 import '../styles/main.scss'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import api from '../axios/api'
+import { Context as AuthContext } from '../context/AuthContext'
 
 const Main = ({ id }) => {
     const [timeline, setTimeline] = useState([])
+
+    const { state } = useContext(AuthContext)
 
     // get timeline post for logged in user
     const getTimeline = async (id) => {
         const res = id ?
         await api.get(`/posts/account/${id}`) :
-        await api.get('/posts/6238af302975ad5b4bca0e96')
+        await api.get(`/posts/${state.student._id}`)
         setTimeline(res.data)
         // setTimeline(
         //     res.data.sort((p1, p2) => {
