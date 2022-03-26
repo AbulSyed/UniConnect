@@ -1,12 +1,12 @@
-// Components
+// Material icons
 import { Input } from '@material-ui/icons'
-import { Link } from 'react-router-dom'
 
 // Styles
 import '../styles/signup.scss'
 
-import { useRef, useContext } from 'react';
-import { Context as AuthContext } from '../context/AuthContext';
+import { Link } from 'react-router-dom'
+import { useRef, useContext } from 'react'
+import { Context as AuthContext } from '../context/AuthContext'
 
 const Signup = () => {
     const { state, signup } = useContext(AuthContext);
