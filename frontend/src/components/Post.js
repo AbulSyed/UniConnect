@@ -4,14 +4,16 @@ import { Delete, ThumbUp } from '@material-ui/icons'
 // Styles
 import '../styles/post.scss'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import api from '../axios/api'
 import { formatDistanceToNow } from 'date-fns'
 import { Link } from 'react-router-dom';
+import { Context as AuthContext } from '../context/AuthContext';
 
 const Post = ({ post }) => {
     const [student, setStudent] = useState([])
-    const [likes, setLikes] = useState(post.likes.length);
+    const [thumbsUp, setThumbsUp] = useState(post.thumbsUp.length)
+    const [isThumbsUp, setIsThumbsUp] = useState(false)
 
     // get student
     const getStudent = async () => {
@@ -22,6 +24,15 @@ const Post = ({ post }) => {
     useEffect(() => {
         getStudent()
     }, [])
+
+    const { state } = useContext(AuthContext);
+
+    // like/dislike a post
+    const handleThumbsUp = async () => {
+        await api.patch(`/posts/${post._id}/like`, { studentId: state.student._id })
+        setThumbsUp(isThumbsUp ? thumbsUp - 1 : thumbsUp + 1)
+        setIsThumbsUp(!isThumbsUp);
+    }
 
     return ( 
         <div className="post">
@@ -42,9 +53,9 @@ const Post = ({ post }) => {
             <img src={ post.pictureUrl } alt="" className="post-photo" />
             <div className="post-footer">
                 <div className="like">
-                    <ThumbUp />
+                    <ThumbUp onClick={ handleThumbsUp } color={ isThumbsUp ? 'primary' : 'action' } />
                 </div>
-                <p>{ likes } people like</p>
+                <p>{ thumbsUp } people like</p>
             </div>
         </div>
      );
