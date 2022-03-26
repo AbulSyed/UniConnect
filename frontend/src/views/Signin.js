@@ -5,7 +5,21 @@ import { Link } from 'react-router-dom'
 // Styles
 import '../styles/signin.scss'
 
+import { useRef, useContext } from 'react';
+import { Context as AuthContext } from '../context/AuthContext';
+
 const Signin = () => {
+    const { state, signin } = useContext(AuthContext);
+
+    const email = useRef()
+    const password = useRef()
+
+    const handleSignin = async (e) => {
+        e.preventDefault()
+        // dispatching signin action
+        await signin(email.current.value, password.current.value)
+    }
+
     return ( 
         <div className="signin">
             <div className="top">
@@ -14,9 +28,9 @@ const Signin = () => {
                 </div>
                 <h1 className="title">Web application connecting like-minded students</h1>
             </div>
-            <form>
-                <input type="email" required placeholder="email" className="loginInput" />
-                <input type="password" required placeholder="password" className="loginInput" />
+            <form onSubmit={ handleSignin }>
+                <input type="email" required placeholder="email" className="loginInput" ref={ email } />
+                <input type="password" required placeholder="password" className="loginInput" ref={ password } />
                 <button>
                     <Input />
                 </button>

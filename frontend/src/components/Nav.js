@@ -5,12 +5,26 @@ import { Link } from "react-router-dom"
 // Styles
 import '../styles/nav.scss'
 
+import { useContext } from 'react';
+import { Context as AuthContext } from '../context/AuthContext';
+
 const Nav = () => {
+    const { state, signout } = useContext(AuthContext);
+
+    const handleSignout = () => {
+        signout()
+    }
+
     return ( 
         <div className="nav">
             <Link to="/">
                 <img className="logo" alt="UniConnect" src={ require('../logo/logo2.png') } />
             </Link>
+            {/* if student is logged in, show all other nav links else hide */}
+            {
+            
+            state.student ? <>
+
             <div className="search">
                 <div className="search-icon">
                     <Link to="/search" className="link">
@@ -22,8 +36,10 @@ const Nav = () => {
                 <li><Link to="/addPost" className="link"><CameraAlt /></Link></li>
                 <li><Link to="/" className="link"><Forum /></Link></li>
                 <li><Link to="/account/1" className="link"><AccountBox /></Link></li>
-                <li><Link to="/signin" className="link"><ExitToApp /></Link></li>
-            </ul>
+                <li onClick={ handleSignout }><ExitToApp /></li>
+            </ul> </> : null
+
+            }
         </div>
      );
 }

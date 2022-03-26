@@ -5,7 +5,22 @@ import { Link } from 'react-router-dom'
 // Styles
 import '../styles/signup.scss'
 
+import { useRef, useContext } from 'react';
+import { Context as AuthContext } from '../context/AuthContext';
+
 const Signup = () => {
+    const { state, signup } = useContext(AuthContext);
+
+    const name = useRef()
+    const email = useRef()
+    const password = useRef()
+
+    const handleSignup = async (e) => {
+        e.preventDefault()
+        // dispatching signin action
+        await signup(name.current.value, email.current.value, password.current.value)
+    }
+
     return ( 
         <div className="signup">
             <div className="top">
@@ -14,10 +29,10 @@ const Signup = () => {
                 </div>
                 <h1 className="title">Web application connecting like-minded students</h1>
             </div>
-            <form>
-                <input type="text" required placeholder="name" className="signupInput" />
-                <input type="email" required placeholder="email" className="signupInput" />
-                <input type="password" required placeholder="password" className="signupInput" />
+            <form onSubmit={ handleSignup }>
+                <input type="text" required placeholder="name" className="signupInput" ref={ name } />
+                <input type="email" required placeholder="email" className="signupInput" ref={ email } />
+                <input type="password" required placeholder="password" className="signupInput" ref={ password } />
                 <button>
                     <Input />
                 </button>
