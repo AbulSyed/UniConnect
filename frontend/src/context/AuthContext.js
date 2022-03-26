@@ -2,18 +2,18 @@ import createContext from './createContext'
 import api from '../axios/api'
 
 const authReducer = (state, action) => {
-  switch(action.type){
-    case 'return_error':
-        return { ...state, errMsg: action.payload }
-    case 'signin':
-        return { error: '', student: action.payload }
-    case 'signup':
-        return { error: '', student: action.payload }
-    case 'signout':
-        return { error: '', student: action.payload }
-    default:
-        return state
-  }
+    switch(action.type){
+        case 'return_error':
+            return { ...state, errMsg: action.payload }
+        case 'signin':
+            return { error: '', student: action.payload }
+        case 'signup':
+            return { error: '', student: action.payload }
+        case 'signout':
+            return { error: '', student: action.payload }
+        default:
+            return state
+    }
 }
 
 const signin = dispatch => {
