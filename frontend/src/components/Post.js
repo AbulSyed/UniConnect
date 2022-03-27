@@ -55,7 +55,9 @@ const Post = ({ post }) => {
             </div>
             <hr />
             <p className="post-text">{ post.text }</p>
-            <img src={ post.pictureUrl } alt="" className="post-photo" />
+            {
+                post.pictureUrl ? <img src={ post.pictureUrl } alt="" className="post-photo" /> : null
+            }
             <div className="post-footer">
                 <div className="like">
                     <ThumbUp onClick={ handleThumbsUp } color={ isThumbsUp ? 'primary' : 'action' } />

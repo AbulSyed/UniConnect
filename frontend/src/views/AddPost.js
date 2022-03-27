@@ -21,15 +21,17 @@ const AddPost = () => {
     // upload image to firebase then get back image url
     // code reuse with modification from previous personal project https://github.com/AbulSyed/post-app/blob/master/post-client/src/store/modules/images.js
     const uploadImage = async (file, id) => {
-        const filePath = `images/${id}/${file.name}${Date.now()}`;
+        if(!file) return
+
+        const filePath = `images/${id}/${file.name}${Date.now()}`
         const storageRef = storage.ref(filePath);
     
         try {
-            const res = await storageRef.put(file);
-            const url = await res.ref.getDownloadURL();
+            const res = await storageRef.put(file)
+            const url = await res.ref.getDownloadURL()
             return url
         }catch(err){
-            console.log(err.message);
+            console.log(err.message)
         }
     }
 
