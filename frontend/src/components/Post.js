@@ -10,10 +10,14 @@ import { formatDistanceToNow } from 'date-fns'
 import { Link } from 'react-router-dom'
 import { Context as AuthContext } from '../context/AuthContext'
 
+import AddCommentDialog from './AddCommentDialog'
+import ShowCommentDialog from './ShowCommentDialog'
+
 const Post = ({ post }) => {
     const [student, setStudent] = useState([])
     const [thumbsUp, setThumbsUp] = useState(post.thumbsUp.length)
     const [isThumbsUp, setIsThumbsUp] = useState(false)
+    const [comments, setComments] = useState(post.comments.length)
 
     // get student
     const getStudent = async () => {
@@ -62,7 +66,17 @@ const Post = ({ post }) => {
                 <div className="like">
                     <ThumbUp onClick={ handleThumbsUp } color={ isThumbsUp ? 'primary' : 'action' } />
                 </div>
-                <p>{ thumbsUp } people like</p>
+                <AddCommentDialog id={ post._id } />
+                <ShowCommentDialog comments={ comments } post={ post } />
+                {
+                    thumbsUp === 0 ? <p>No one liked</p> : null
+                }
+                {
+                    thumbsUp === 1 ? <p>{ thumbsUp } like</p> : null
+                }
+                {
+                    thumbsUp > 1 ? <p>{ thumbsUp } likes</p> : null
+                }
             </div>
         </div>
      );
