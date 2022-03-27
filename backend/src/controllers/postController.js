@@ -50,6 +50,15 @@ const post_like = async (req, res) => {
     }
 }
 
+const post_get = async (req, res) => {
+    try {
+        const post = await Post.findById(req.params.id)
+        res.status(200).send(post)
+    } catch (err) {
+        res.status(500).send(err)
+    }
+}
+
 // get feed - (current student posts + other student posts that you are friends with)
 const post_feed = async (req, res) => {
     try {
@@ -79,10 +88,30 @@ const post_account = async (req, res) => {
     }
 }
 
+// add comment
+const post_comment_create = async (req, res) => {
+    try {
+        const student = await Student.findById(req.body.id)
+        const post = await Post.findById(req.params.id)
+
+        await post.updateOne({ $push: {
+            comments: {
+                comment: req.body.comment,
+                id: student._id
+            }
+        } })
+        res.status(200).send('Comment added')
+    } catch (err) {
+        res.status(400).send(err)
+    }
+}
+
 module.exports = {
     post_create,
     post_delete,
     post_account,
     post_like,
-    post_feed
+    post_get,
+    post_feed,
+    post_comment_create
 }

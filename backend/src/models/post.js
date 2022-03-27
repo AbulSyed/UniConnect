@@ -12,6 +12,10 @@ const postSchema = new mongoose.Schema({
   pictureUrl: {
     type: String
   },
+  comments: {
+    type: Array,
+    default: []
+  },
   // student id will be stored in thumbsUp array, if they like a post
   thumbsUp: {
     type: Array,

@@ -17,7 +17,7 @@ const Main = ({ id }) => {
     const getTimeline = async (id) => {
         const res = id ?
         await api.get(`/posts/account/${id}`) :
-        await api.get(`/posts/${state.student._id}`)
+        await api.get(`/posts/feed/${state.student._id}`)
         setTimeline(
             // ordering of posts (latest first)
             res.data.sort((post1, post2) => {
