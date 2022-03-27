@@ -9,7 +9,7 @@ import { useRef, useContext } from 'react'
 import { Context as AuthContext } from '../context/AuthContext'
 
 const Signup = () => {
-    const { state, signup } = useContext(AuthContext);
+    const { signup } = useContext(AuthContext);
 
     const name = useRef()
     const email = useRef()
