@@ -5,11 +5,11 @@ import { Search, CameraAlt, Forum, AccountBox, ExitToApp } from '@material-ui/ic
 import '../styles/nav.scss'
 
 import { Link } from "react-router-dom"
-import { useContext } from 'react';
-import { Context as AuthContext } from '../context/AuthContext';
+import { useContext } from 'react'
+import { Context as AuthContext } from '../context/AuthContext'
 
 const Nav = () => {
-    const { state, signout } = useContext(AuthContext);
+    const { state, signout } = useContext(AuthContext)
 
     const handleSignout = () => {
         signout()
