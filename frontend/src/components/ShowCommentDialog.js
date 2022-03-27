@@ -35,6 +35,7 @@ const ShowCommentDialog = ({ comments, post }) => {
                 <ul className="comments">
                     { post.comments.map(comment => (
                     <li key={ Math.random() } className="comment">
+                        <span><strong>{ state.student.name }</strong></span>
                         <img className="user-img" src={ state.student.studentImage } alt="" />
                         <span>{ comment.comment }</span>
                     </li>
