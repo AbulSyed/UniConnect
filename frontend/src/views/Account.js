@@ -1,7 +1,7 @@
 // Components
 import Main from '../components/Main';
 import Bio from '../components/Bio';
-import { Collections } from '@material-ui/icons';
+import ChangeImageDialog from '../components/ChangeImageDialog'
 
 // Styles
 import '../styles/account.scss'
@@ -32,7 +32,8 @@ const Account = () => {
                         <div className="accountBanner">
                             <img className="accountBannerPic" src={ student.bannerImage } alt="" />
                             <img className="accountUserPic" src={ student.studentImage } alt="" />
-                            <Collections className="uploadIcon" />
+                            <ChangeImageDialog imageType={ 'account' } />
+                            <ChangeImageDialog imageType={ 'banner' } />
                         </div>
                         <div className="accountUser">
                             <h3 className="accountUserName">{ student.name }</h3>
