@@ -37,7 +37,7 @@ const Main = ({ id }) => {
                     <Post key={ post._id } post={ post } />
                 ))
                 :
-                <p>Your feed is empty</p>
+                <p>Feed is empty</p>
                 }
             </div>
         </div>

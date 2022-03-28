@@ -15,7 +15,7 @@ import { Context as AuthContext } from '../context/AuthContext'
 const Account = () => {
     const [student, setStudent] = useState([])
     const { id } = useParams();
-    const { state } = useContext(AuthContext)
+    const { state, friend, unfriend } = useContext(AuthContext)
 
     // get student
     const getStudent = async (id) => {
@@ -27,6 +27,25 @@ const Account = () => {
         getStudent(id)
     }, [id])
 
+    // add/remove friends
+    const handleAddRemoveFriends = async (isConnected, id) => {
+        try {
+            if(isConnected){
+                await api.patch(`/students/remove_friend/${id}`, {
+                    studentId: state.student._id
+                })
+                unfriend(id)
+            }else{
+                await api.patch(`/students/add_friend/${id}`, {
+                    studentId: state.student._id
+                })
+                friend(id)
+            }
+        }catch(err){
+            console.log(err)
+        }
+    }
+
     return ( 
         <>
             <div className="account">
@@ -35,9 +54,21 @@ const Account = () => {
                         <div className="accountBanner">
                             <img className="accountBannerPic" src={ student.bannerImage } alt="" />
                             <img className="accountUserPic" src={ student.studentImage } alt="" />
-                            <Add className="center" />
-                            {/* <Remove className="center" /> */}
                             {
+                                // we dont want to allow a user to add themselves to their friends list
+                                state.student._id !== id ? 
+                                <>
+                                {
+                                    state.student.friends.includes(id) ?
+                                    <Remove className="center" onClick={ () => handleAddRemoveFriends(true, id) } />
+                                    :
+                                    <Add className="center" onClick={ () => handleAddRemoveFriends(false, id) } />
+                                }</>
+                                : null
+                            }
+
+                            {
+                                // we only want to show Change profile/cover image for currently logged in users
                                 state.student._id === id ? 
                                 <>
                                     <ChangeImageDialog imageType={ 'account' } />

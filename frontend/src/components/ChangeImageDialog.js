@@ -61,7 +61,7 @@ const ChangeImageDialog = ({ imageType }) => {
 	<div>
 		<Button color="default" onClick={handleClickOpen}>
             {
-                imageType === 'account' ? <p>Update profile image</p> : <p>Update cover image</p>
+                imageType === 'account' ? <p>Change profile image</p> : <p>Change cover image</p>
             }
 		</Button>
 		<Dialog

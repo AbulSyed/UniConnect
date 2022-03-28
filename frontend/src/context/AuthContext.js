@@ -11,6 +11,16 @@ const authReducer = (state, action) => {
             return { error: '', student: action.payload }
         case 'signout':
             return { error: '', student: action.payload }
+        case 'friend':
+            return { ...state, student: {
+                ...state.student,
+                friends: [...state.student.friends, action.payload]
+            } }
+        case 'unfriend':
+            return { ...state, student: {
+                ...state.student,
+                friends: state.student.friends.filter(friend => friend !== action.payload)
+            } }
         default:
             return state
     }
@@ -50,7 +60,19 @@ const signout = dispatch => {
     }
 }
 
-export const { Context, Provider } = createContext(authReducer, { signin, signup, signout }, {
+const friend = dispatch => {
+    return (id) => {
+        dispatch({ type: 'friend', payload: id })
+    }
+}
+
+const unfriend = dispatch => {
+    return (id) => {
+        dispatch({ type: 'unfriend', payload: id })
+    }
+}
+
+export const { Context, Provider } = createContext(authReducer, { signin, signup, signout, friend, unfriend }, {
     student: null,
     token: null,
     error: ''
