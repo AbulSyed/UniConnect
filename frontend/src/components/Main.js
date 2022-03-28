@@ -33,9 +33,12 @@ const Main = ({ id }) => {
     return ( 
         <div className="main">
             <div className="container">
-                { timeline.map(post => (
+                { timeline.length ? timeline.map(post => (
                     <Post key={ post._id } post={ post } />
-                )) }
+                ))
+                :
+                <p>Your feed is empty</p>
+                }
             </div>
         </div>
      );

@@ -6,13 +6,15 @@ import ChangeImageDialog from '../components/ChangeImageDialog'
 // Styles
 import '../styles/account.scss'
 
-import { useState, useEffect } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import api from '../axios/api'
 import { useParams } from 'react-router-dom';
+import { Context as AuthContext } from '../context/AuthContext'
 
 const Account = () => {
     const [student, setStudent] = useState([])
     const { id } = useParams();
+    const { state } = useContext(AuthContext)
 
     // get student
     const getStudent = async (id) => {
@@ -32,8 +34,15 @@ const Account = () => {
                         <div className="accountBanner">
                             <img className="accountBannerPic" src={ student.bannerImage } alt="" />
                             <img className="accountUserPic" src={ student.studentImage } alt="" />
-                            <ChangeImageDialog imageType={ 'account' } />
-                            <ChangeImageDialog imageType={ 'banner' } />
+                            {
+                                state.student._id === id ? 
+                                <>
+                                    <ChangeImageDialog imageType={ 'account' } />
+                                    <ChangeImageDialog imageType={ 'banner' } />
+                                </>
+                                :
+                                null
+                            }
                         </div>
                         <div className="accountUser">
                             <h3 className="accountUserName">{ student.name }</h3>

@@ -3,8 +3,9 @@ import { Edit } from '@material-ui/icons';
 // Styles
 import '../styles/bio.scss'
 
-import { useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import api from '../axios/api';
+import { Context as AuthContext } from '../context/AuthContext'
 
 const Bio = ({ student }) => {
     const [editClicked, setEditClicked] = useState(false);
@@ -12,6 +13,8 @@ const Bio = ({ student }) => {
     const [university, setUniversity] = useState('');
     const [course, setCourse] = useState('');
     const [hobby, setHobby] = useState('');
+
+    const { state } = useContext(AuthContext)
 
     // when icon button pressed on bio data, form pops up
     const handleEditClicked = () => {
@@ -54,7 +57,9 @@ const Bio = ({ student }) => {
                 </div>
                 :
                 <div className="bio">
-                    <Edit className="edit" onClick={ handleEditClicked } />
+                    {
+                        state.student._id === student._id ? <Edit className="edit" onClick={ handleEditClicked } /> : null
+                    }
                     <p>Bio: { student.bio }</p>
                     <p>University: { student.university }</p>
                     <p>Course: { student.course }</p>
