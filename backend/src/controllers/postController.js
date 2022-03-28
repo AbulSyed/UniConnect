@@ -97,10 +97,23 @@ const post_comment_create = async (req, res) => {
         await post.updateOne({ $push: {
             comments: {
                 comment: req.body.comment,
-                id: student._id
+                id: student._id,
+                name: student.name,
+                studentImage: student.studentImage
             }
         } })
         res.status(200).send('Comment added')
+    } catch (err) {
+        res.status(400).send(err)
+    }
+}
+
+// add comment
+const post_comment_get = async (req, res) => {
+    try {
+        const post = await Post.findById(req.params.id)
+
+        res.status(200).send(post.comments)
     } catch (err) {
         res.status(400).send(err)
     }
@@ -113,5 +126,6 @@ module.exports = {
     post_like,
     post_get,
     post_feed,
-    post_comment_create
+    post_comment_create,
+    post_comment_get
 }

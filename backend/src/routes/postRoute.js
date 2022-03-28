@@ -11,5 +11,6 @@ router.get('/posts/:id', postController.post_get)
 router.get('/posts/feed/:id', postController.post_feed)
 router.get('/posts/account/:id', postController.post_account)
 router.post('/posts/comments/:id', postController.post_comment_create)
+router.get('/posts/comments/:id', postController.post_comment_get)
 
 module.exports = router

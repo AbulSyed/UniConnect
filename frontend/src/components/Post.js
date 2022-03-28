@@ -17,7 +17,8 @@ const Post = ({ post }) => {
     const [student, setStudent] = useState([])
     const [thumbsUp, setThumbsUp] = useState(post.thumbsUp.length)
     const [isThumbsUp, setIsThumbsUp] = useState(false)
-    const [comments, setComments] = useState(post.comments.length)
+    const [commentsLength, setCommentsLength] = useState(post.comments.length)
+    const [comments, setComments] = useState([])
 
     // get student
     const getStudent = async () => {
@@ -37,6 +38,15 @@ const Post = ({ post }) => {
         setThumbsUp(isThumbsUp ? thumbsUp - 1 : thumbsUp + 1)
         setIsThumbsUp(!isThumbsUp);
     }
+
+    const getComments = async () => {
+        const res = await api.get(`/posts/comments/${post._id}`)
+        setComments(res.data)
+    }
+
+    useEffect(() => {
+        getComments()
+    }, [])
 
     return ( 
         <div className="post">
@@ -67,7 +77,7 @@ const Post = ({ post }) => {
                     <ThumbUp onClick={ handleThumbsUp } color={ isThumbsUp ? 'primary' : 'action' } />
                 </div>
                 <AddCommentDialog id={ post._id } />
-                <ShowCommentDialog comments={ comments } post={ post } />
+                <ShowCommentDialog commentsLength={ commentsLength } comments={ comments } />
                 {
                     thumbsUp === 0 ? <p>No one liked</p> : null
                 }

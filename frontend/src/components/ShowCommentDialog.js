@@ -1,11 +1,10 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import '../styles/commentDialog.scss'
-import { Context as AuthContext } from '../context/AuthContext'
 
-const ShowCommentDialog = ({ comments, post }) => {
+const ShowCommentDialog = ({ commentsLength, comments }) => {
 	const [open, setOpen] = useState(false);
 
 	const handleClickOpen = () => {
@@ -16,13 +15,11 @@ const ShowCommentDialog = ({ comments, post }) => {
 		setOpen(false);
 	}
 
-	const { state } = useContext(AuthContext)
-
 	return (
 	<div>
 		<Button color="default" onClick={handleClickOpen}>
             {
-                comments === 0 ? <p>No comments</p> : <p>View comments</p>
+                commentsLength === 0 ? <p>No comments</p> : <p>View comments</p>
             }
 		</Button>
 		<Dialog
@@ -33,10 +30,10 @@ const ShowCommentDialog = ({ comments, post }) => {
 		>
 			<DialogContent>
                 <ul className="comments">
-                    { post.comments.map(comment => (
+                    { comments.map(comment => (
                     <li key={ Math.random() } className="comment">
-                        <span><strong>{ state.student.name }</strong></span>
-                        <img className="user-img" src={ state.student.studentImage } alt="" />
+                        <span><strong>{ comment.name }</strong></span>
+                        <img className="user-img" src={ comment.studentImage } alt="" />
                         <span>{ comment.comment }</span>
                     </li>
                     )) }
