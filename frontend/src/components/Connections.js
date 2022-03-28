@@ -33,7 +33,7 @@ const Connections = () => {
                             <Link key={ connection._id } to={ `/account/${connection._id}` } className="link">
                                 <li className="connectionItem">
                                     <img className="connectionImg" src={ connection.studentImage } alt="" />
-                                    <span>{ connection.name }</span>
+                                    <span className="connectionName">{ connection.name }</span>
                                 </li>
                             </Link>
                         ))

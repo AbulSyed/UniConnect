@@ -1,19 +1,31 @@
-.container {
+.search-container {
   padding: 3rem;
+  margin: 0 auto;
+  max-width: 1200px;
+  overflow: hidden;
 
   .profiles {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1.5rem;
 
     .profile {
-      background: hsl(0, 0%, 87%);
+      background: rgb(240, 240, 240);
       border-radius: .625rem;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      text-decoration: none;
+      color: rgb(38, 58, 95);
+      justify-content: space-around;
       margin-top: 1rem;
       margin-bottom: 1rem;
       padding: 1.5rem;
+      cursor: pointer;
+      transition: all .6s;
+
+      &:hover {
+        background: rgb(228, 228, 228);
+      }
 
       .profile-pic {
         border-radius: .625rem;
