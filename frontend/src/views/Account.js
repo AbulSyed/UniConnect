@@ -2,6 +2,7 @@
 import Main from '../components/Main';
 import Bio from '../components/Bio';
 import ChangeImageDialog from '../components/ChangeImageDialog'
+import { Add, Remove } from '@material-ui/icons'
 
 // Styles
 import '../styles/account.scss'
@@ -34,6 +35,8 @@ const Account = () => {
                         <div className="accountBanner">
                             <img className="accountBannerPic" src={ student.bannerImage } alt="" />
                             <img className="accountUserPic" src={ student.studentImage } alt="" />
+                            <Add className="center" />
+                            {/* <Remove className="center" /> */}
                             {
                                 state.student._id === id ? 
                                 <>
