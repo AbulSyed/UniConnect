@@ -16,6 +16,11 @@
         .connectionsList {
             list-style: none;
 
+            .link {
+                text-decoration: none;
+                color: #000;
+            }
+
             .connectionItem {
                 display: flex;
                 align-items: center;
