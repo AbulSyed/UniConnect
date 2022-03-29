@@ -6,6 +6,7 @@ import Signin from './views/Signin'
 import AddPost from './views/AddPost'
 import Account from './views/Account'
 import Search from './views/Search'
+import Chat from './views/Chat'
 import { useContext } from 'react';
 import { Context } from './context/AuthContext';
 
@@ -20,7 +21,7 @@ function App() {
 				<Route path="/signin" element={ state.student ? <Navigate to="/" /> : <Signin />} />
 				<Route path="/signup" element={ state.student ? <Navigate to="/" /> : <Signup />} />
 				<Route path="/addPost" element={ state.student ? <AddPost /> : <Navigate to="/" /> } />
-				{/* <Route path="/messenger" element={ state.student ? <Messenger /> : <Navigate to="/" /> } /> */}
+				<Route path="/chat" element={ state.student ? <Chat /> : <Navigate to="/" /> } />
 				<Route path="/account/:id" element={ state.student ? <Account /> : <Navigate to="/" /> } />
 				<Route path="/search" element={ state.student ? <Search /> : <Navigate to="/" /> } />
 			</Routes>

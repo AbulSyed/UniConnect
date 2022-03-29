@@ -34,7 +34,7 @@ const Nav = () => {
             </div>
             <ul className="other">
                 <li><Link to="/addPost" className="link"><CameraAlt /></Link></li>
-                <li><Link to="/" className="link"><Forum /></Link></li>
+                <li><Link to="/chat" className="link"><Forum /></Link></li>
                 <li><Link to={ `/account/${state.student._id}` } className="link"><AccountBox /></Link></li>
                 <li onClick={ handleSignout }><ExitToApp /></li>
             </ul> </> : null
