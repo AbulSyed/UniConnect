@@ -5,37 +5,32 @@ import api from '../axios/api'
 import { Context as AuthContext } from '../context/AuthContext'
 import NewChatDialog from '../components/NewChatDialog'
 import { Send } from '@material-ui/icons'
+import StudentChat from '../components/StudentChat'
 
 const Chat = () => {
     const { state } = useContext(AuthContext)
-    const [students, setStudents] = useState([]);
+    const [chat, setChat] = useState([])
 
-    // const friendId = conversation.members.find(curr => curr !== currUser)
-
-    const getStudents = async (id) => {
+    const getChat = async () => {
         try {
-            const res = await api.get(`/students`)
-            setStudents(res.data)
+            const res = await api.get(`/chat/${state.student._id}`)
+            setChat(res.data)
         }catch(err){
             console.log(err)
         }
     }
 
     useEffect(() => {
-        getStudents()
+        getChat()
     }, [])
 
     return ( 
         <div className="chat">
             <div className="existingChats">
                 {
-                    students.map(student => (
-                        // <div key={ student._id } onClick={ () => setCurrentChat(conversation) }>
-                        <div key={ student._id }>
-                            <div className="existingChatsContainer">
-                                <img className="existingChatsImg" src={ student.studentImage } />
-                                <span>{ student.name }</span>
-                            </div>
+                    chat.map(c => (
+                        <div key={ c._id }>
+                            <StudentChat chat={ c } />
                         </div>
                     ))
                 }

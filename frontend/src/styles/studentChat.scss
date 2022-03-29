@@ -1,0 +1,23 @@
+.studentChat {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    background-color: rgb(245, 240, 240);
+    padding: 0.625rem;
+    border-radius: 0.625rem;
+    cursor: pointer;
+    transition: all .5s;
+
+    &:hover {
+        background-color: rgb(228, 228, 228);;
+    }
+}
+
+.studentChatImg {
+    object-fit: cover;
+    margin-right: 1.25rem;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+}
