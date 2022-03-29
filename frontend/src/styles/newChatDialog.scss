@@ -1,0 +1,36 @@
+.list {
+    color: rgb(38, 58, 95);
+    margin: 0;
+    padding: 0;
+
+    .listItem {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-bottom: 1rem;
+        font-weight: 700;
+        background: rgb(233, 227, 227);
+        font-size: 1.5rem;
+        padding: .8rem;
+        border-radius: .8rem;
+        cursor: pointer;
+        transition: all .6s;
+
+        &:hover {
+            background: rgb(214, 210, 210);
+        }
+
+        .listItemImg {
+            border-radius: 50%;
+            object-fit: cover;
+            height: 2rem;
+            width: 2rem;
+            margin-right: .8rem;
+        }
+    }
+
+    .listText {
+        font-weight: 700;
+        margin-bottom: .6rem;
+    }
+}

@@ -74,7 +74,7 @@ const Post = ({ post }) => {
             }
             <div className="post-footer">
                 <div className="like">
-                    <ThumbUp onClick={ handleThumbsUp } color={ isThumbsUp ? 'primary' : 'action' } />
+                    <ThumbUp onClick={ handleThumbsUp } />
                 </div>
                 <AddCommentDialog id={ post._id } />
                 <ShowCommentDialog commentsLength={ commentsLength } comments={ comments } />
