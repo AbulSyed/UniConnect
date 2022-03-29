@@ -3,6 +3,8 @@ const cors = require('cors')
 require('./database/db')
 const studentRoute = require('./routes/studentRoute')
 const postRoute = require('./routes/postRoute')
+const chatRoute = require('./routes/chatRoute')
+const messageRoute = require('./routes/messageRoute')
 
 // initializing express server
 const app = express()
@@ -14,6 +16,8 @@ app.use(cors())
 // register routes
 app.use('/api', studentRoute)
 app.use('/api', postRoute)
+app.use('/api', chatRoute)
+app.use('/api', messageRoute)
 
 app.listen(port, () => {
   console.log('Server up on port:', port)
