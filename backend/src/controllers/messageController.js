@@ -1,9 +1,15 @@
 const Message = require('../models/message')
+const Student = require('../models/student')
 
 const messsage_create = async (req, res) => {
-    const message = new Message(req.body)
-  
     try {
+        const student = await Student.findById(req.body.dispatcherId)
+        // appending studentImage to each message
+        const message = new Message({
+            ...req.body,
+            studentImage: student.studentImage
+        })
+
         await message.save()
         res.status(201).send(message)
     } catch (err) {

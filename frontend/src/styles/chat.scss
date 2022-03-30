@@ -32,11 +32,11 @@
                     flex-direction: column;
                     margin-top: 1.25rem;
 
-                    &.self {
+                    &.other {
                         align-items: flex-end;
                     }
 
-                    &.self .messageText {
+                    &.other .messageText {
                         background-color: #e9eaec;
                         color: #000;
                     }
