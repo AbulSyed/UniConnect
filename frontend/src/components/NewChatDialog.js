@@ -6,7 +6,7 @@ import '../styles/newChatDialog.scss'
 import api from '../axios/api'
 import { Context as AuthContext } from '../context/AuthContext';
 
-const NewChatDialog = () => {
+const NewChatDialog = ({ message }) => {
   const [open, setOpen] = useState(false);
   const [friends, setFriends] = useState([]);
 
@@ -37,7 +37,7 @@ const NewChatDialog = () => {
   return (
     <div>
       <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Start a new chat
+        { message }
       </Button>
       <Dialog
         open={open}
