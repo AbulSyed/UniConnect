@@ -6,12 +6,14 @@ import { Context as AuthContext } from '../context/AuthContext'
 import NewChatDialog from '../components/NewChatDialog'
 import { Send } from '@material-ui/icons'
 import StudentChat from '../components/StudentChat'
+import { formatDistanceToNow } from 'date-fns'
 
 const Chat = () => {
     const { state } = useContext(AuthContext)
     const [chat, setChat] = useState([])
     const [currChat, setCurrChat] = useState(null)
     const [messages, setMessages] = useState([])
+    const [newMessage, setNewMessage] = useState('')
 
     const getChat = async () => {
         try {
@@ -39,6 +41,16 @@ const Chat = () => {
         getMessages()
     }, [currChat?._id])
 
+    const handleSend = async () => {
+        const res = await api.post('/messages', {
+            chatId: currChat._id,
+            dispatcherId: state.student._id,
+            messageContent: newMessage
+        })
+        setMessages([...messages, res.data])
+        setNewMessage('')
+    }
+
     return ( 
         <div className="chat">
             <div className="existingChats">
@@ -64,15 +76,15 @@ const Chat = () => {
                                                 <img className="messageImage" src={ message.studentImage } alt="" />
                                                 <span className="messageText">{ message.messageContent }</span>
                                             </div>
-                                            <div className="messageTime">{ message.createdAt }</div>
+                                            <div className="messageTime">{ formatDistanceToNow(new Date(message.createdAt), { addSuffix: true }) }</div>
                                         </div>
                                     ))
                                 }
                             </div>
 
                             <div className="messageDiv">
-                                <textarea className="messageDivInput" placeholder="Type a message..." />
-                                <button className="messageDivBtn"><Send /></button>
+                                <textarea className="messageDivInput" placeholder="Type a message..." onChange={ e => setNewMessage(e.target.value) } value={ newMessage } />
+                                <button className="messageDivBtn" onClick={ handleSend }><Send /></button>
                             </div>
 
                         </>
