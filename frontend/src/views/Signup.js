@@ -2,7 +2,7 @@
 import { Input } from '@material-ui/icons'
 
 // Styles
-import '../styles/signup.scss'
+import '../styles/auth.scss'
 
 import { Link } from 'react-router-dom'
 import { useRef, useContext } from 'react'
@@ -22,7 +22,7 @@ const Signup = () => {
     }
 
     return ( 
-        <div className="signup">
+        <div className="auth">
             <div className="top">
                 <div className="logo">
                     <img alt="UniConnect" src={ require('../logo/logo2.png') } />
