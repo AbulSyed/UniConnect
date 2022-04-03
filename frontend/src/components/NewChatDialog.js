@@ -1,8 +1,8 @@
+import '../styles/newChatDialog.scss'
 import React, { useState, useEffect, useContext } from 'react';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
-import '../styles/newChatDialog.scss'
 import api from '../axios/api'
 import { Context as AuthContext } from '../context/AuthContext';
 

@@ -1,6 +1,4 @@
-// Styles
 import '../styles/connections.scss'
-
 import { Link } from 'react-router-dom'
 import { useState, useContext, useEffect } from 'react'
 import api from '../axios/api'

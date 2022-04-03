@@ -1,10 +1,6 @@
-// Components
+import '../styles/auth.scss'
 import { Input } from '@material-ui/icons'
 import { Link } from 'react-router-dom'
-
-// Styles
-import '../styles/auth.scss'
-
 import { useRef, useContext } from 'react';
 import { Context as AuthContext } from '../context/AuthContext';
 

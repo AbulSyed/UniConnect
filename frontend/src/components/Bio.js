@@ -1,8 +1,5 @@
-import { Edit } from '@material-ui/icons';
-
-// Styles
 import '../styles/bio.scss'
-
+import { Edit } from '@material-ui/icons';
 import { useContext, useState, useEffect } from 'react'
 import api from '../axios/api';
 import { Context as AuthContext } from '../context/AuthContext'

@@ -1,9 +1,5 @@
-// Material icons
-import { Search, CameraAlt, Forum, AccountBox, ExitToApp } from '@material-ui/icons'
-
-// Styles
 import '../styles/nav.scss'
-
+import { Search, CameraAlt, Forum, AccountBox, ExitToApp } from '@material-ui/icons'
 import { Link } from "react-router-dom"
 import { useContext } from 'react'
 import { Context as AuthContext } from '../context/AuthContext'

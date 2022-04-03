@@ -1,5 +1,4 @@
 import '../styles/search.scss';
-
 import { Link } from 'react-router-dom'
 import { useEffect, useState, useContext } from 'react'
 import api from '../axios/api'

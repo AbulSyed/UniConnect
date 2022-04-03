@@ -1,5 +1,4 @@
 import '../styles/studentChat.scss'
-
 import { useEffect, useContext, useState } from 'react'
 import { Context as AuthContext } from '../context/AuthContext'
 import api from '../axios/api'

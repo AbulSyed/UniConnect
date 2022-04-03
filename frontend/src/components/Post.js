@@ -1,15 +1,10 @@
-// Material icons
-import { Delete, ThumbUp } from '@material-ui/icons'
-
-// Styles
 import '../styles/post.scss'
-
+import { Delete, ThumbUp } from '@material-ui/icons'
 import { useState, useEffect, useContext } from 'react'
 import api from '../axios/api'
 import { formatDistanceToNow } from 'date-fns'
 import { Link } from 'react-router-dom'
 import { Context as AuthContext } from '../context/AuthContext'
-
 import AddCommentDialog from './AddCommentDialog'
 import ShowCommentDialog from './ShowCommentDialog'
 

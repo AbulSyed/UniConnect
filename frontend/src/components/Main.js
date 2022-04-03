@@ -1,9 +1,5 @@
-// Components
-import Post from './Post'
-
-// Styles
 import '../styles/main.scss'
-
+import Post from './Post'
 import { useState, useEffect, useContext } from 'react'
 import api from '../axios/api'
 import { Context as AuthContext } from '../context/AuthContext'

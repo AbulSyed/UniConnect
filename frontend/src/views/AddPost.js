@@ -1,9 +1,5 @@
-// Components
-import { Add } from '@material-ui/icons'
-
-// Styles
 import '../styles/addPost.scss'
-
+import { Add } from '@material-ui/icons'
 import { useRef, useState, useContext } from 'react'
 import { Context as AuthContext } from '../context/AuthContext'
 import { storage } from '../firebase/firebase'

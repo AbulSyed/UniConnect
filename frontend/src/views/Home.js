@@ -1,9 +1,6 @@
-// Components
+import '../styles/home.scss'
 import Main from '../components/Main'
 import Connections from '../components/Connections'
-
-// Styles
-import '../styles/home.scss'
 
 const Home = () => {
     return ( 

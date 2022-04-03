@@ -1,8 +1,8 @@
+import '../styles/commentDialog.scss'
 import { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
-import '../styles/commentDialog.scss'
 
 const ShowCommentDialog = ({ commentsLength, comments }) => {
 	const [open, setOpen] = useState(false);
