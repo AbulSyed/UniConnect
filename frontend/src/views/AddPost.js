@@ -35,13 +35,11 @@ const AddPost = () => {
         e.preventDefault()
 
         const res = await uploadImage(file, state.student._id)
-        const post = {
+        await api.post('/posts', {
             studentId: state.student._id,
             text: desc.current.value,
             pictureUrl: res
-        }
-
-        await api.post('/posts', post)
+        })
 
         navigate('/')
         window.location.reload()
