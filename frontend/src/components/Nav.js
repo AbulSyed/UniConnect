@@ -14,7 +14,7 @@ const Nav = () => {
     return ( 
         <div className="nav">
             <Link to="/">
-                <img className="logo" alt="UniConnect" src={ require('../logo/logo2.png') } />
+                <img className="logo" alt="UniConnect" src={ require('../logo/logo.png') } />
             </Link>
             {/* if student is logged in, show all other nav links else hide */}
             {
