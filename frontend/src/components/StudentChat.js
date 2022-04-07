@@ -4,51 +4,57 @@ import { Context as AuthContext } from '../context/AuthContext'
 import api from '../axios/api'
 
 const StudentChat = ({ chat }) => {
-    const [student, setStudent] = useState([])
-    const [student2, setStudent2] = useState([])
+    const [students, setStudents] = useState([])
     const { state } = useContext(AuthContext)
 
     const friendsId = chat.students.filter(curr => curr !== state.student._id)
 
-    const getStudent = async (id) => {
+    const getStudent = async (friendsId) => {
         try {
-            const res = await api.get(`/students/${id}`)
-            setStudent(res.data)
-            console.log(res.data)
-        }catch(err){
-            console.log(err)
-        }
-    }
-
-    const getStudent2 = async (id) => {
-        try {
-            const res = await api.get(`/students/${id}`)
-            setStudent2(res.data)
-            console.log(res.data)
+            // if there is a groupchat
+            if(friendsId.length > 1) {
+                const students = []
+                for (let i = 0; i < friendsId.length; i++) {
+                    const el = friendsId[i];
+                    const res = await api.get(`/students/${el}`)
+                    students.push(res.data)
+                }
+                setStudents(students)
+            }else {
+                const res = await api.get(`/students/${friendsId}`)
+                setStudents(res.data)
+            }
         }catch(err){
             console.log(err)
         }
     }
 
     useEffect(() => {
-        getStudent(friendsId[0])
-        getStudent2(friendsId[1])
+        getStudent(friendsId)
     }, [])
 
     return ( 
         <div className="studentChat">
             {
-                student2.length == 0 ? <>
-                    <img className="studentChatImg" src={ student.studentImage } />
-                    <span>{ student.name }</span>
-                </> : 
+                // if the chat has 3 or more users
+                students.length > 1 ?
+
                 <>
-                    <img className="studentChatImg" src={ student.studentImage } />
-                    <img className="studentChatImg" src={ student2.studentImage } />
-                    <span>{ student.name } &amp; { student2.name }</span>
+                    {
+                        students.map(student => (
+                            <>
+                                <img className="studentChatImg" src={ student.studentImage } />
+                                <span>{ student.name }</span>
+                            </>
+                        ))
+                    }
+                </> :
+                // if the chat has only 2 users
+                <>
+                    <img className="studentChatImg" src={ students.studentImage } />
+                    <span>{ students.name }</span>
                 </>
             }
-            
         </div>
     );
 }
