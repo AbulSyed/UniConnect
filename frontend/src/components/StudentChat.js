@@ -15,8 +15,7 @@ const StudentChat = ({ chat }) => {
             if(friendsId.length > 1) {
                 const students = []
                 for (let i = 0; i < friendsId.length; i++) {
-                    const el = friendsId[i];
-                    const res = await api.get(`/students/${el}`)
+                    const res = await api.get(`/students/${friendsId[i]}`)
                     students.push(res.data)
                 }
                 setStudents(students)
@@ -36,16 +35,16 @@ const StudentChat = ({ chat }) => {
     return ( 
         <div className="studentChat">
             {
-                // if the chat has 3 or more users
+                // if the chat has > 2 users (group chat)
                 students.length > 1 ?
 
                 <>
                     {
                         students.map(student => (
-                            <>
-                                <img className="studentChatImg" src={ student.studentImage } />
+                            <div className="studentGroupChat" key={ student._id }>
+                                <img className="studentChatImg" src={ student.studentImage }/>
                                 <span>{ student.name }</span>
-                            </>
+                            </div>
                         ))
                     }
                 </> :
