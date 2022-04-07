@@ -21,7 +21,7 @@ const Signup = () => {
         <div className="auth">
             <div className="top">
                 <div className="logo">
-                    <img alt="UniConnect" src={ require('../logo/logo2.png') } />
+                    <img alt="UniConnect" src={ require('../logo/logo.png') } />
                 </div>
                 <h1 className="title">Web application connecting like-minded students</h1>
             </div>
