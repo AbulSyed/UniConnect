@@ -1,38 +1,47 @@
 import '../styles/newChatDialog.scss'
-import React, { useState, useEffect, useContext } from 'react';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogContent from '@material-ui/core/DialogContent';
+import React, { useState, useEffect, useContext } from 'react'
+import Button from '@material-ui/core/Button'
+import Dialog from '@material-ui/core/Dialog'
+import DialogContent from '@material-ui/core/DialogContent'
 import api from '../axios/api'
-import { Context as AuthContext } from '../context/AuthContext';
+import { Context as AuthContext } from '../context/AuthContext'
 
 const NewChatDialog = ({ message }) => {
-  const [open, setOpen] = useState(false);
-  const [friends, setFriends] = useState([]);
+  const [open, setOpen] = useState(false)
+  const [friends, setFriends] = useState([])
 
-  const { state } = useContext(AuthContext);
+  const { state } = useContext(AuthContext)
 
   const handleClickOpen = () => {
-    setOpen(true);
+    setOpen(true)
   };
 
-  const handleClose = async (id) => {
-    // console.log(id)
-    setOpen(false);
-  };
+  const handleClose = async (recipientId) => {
+    if(state.student._id && typeof recipientId == 'string'){
+        const res = await api.post('/chat', {
+        "dispatcherId": state.student._id,
+        "recipientId": recipientId
+        })
+        console.log(res)
+    }
+    setOpen(false)
+    if(state.student._id && typeof recipientId == 'string'){
+        window.location.reload();
+    }
+  }
 
   const getFriends = async () => {
     try {
-        const res = await api.get(`/students/connections/${state.student._id}`);
-        setFriends(res.data);
+        const res = await api.get(`/students/connections/${state.student._id}`)
+        setFriends(res.data)
     }catch(err){
         console.log(err)
     }
   }
 
   useEffect(() => {
-    getFriends();
-  }, [state.student._id]);
+    getFriends()
+  }, [state.student._id])
 
   return (
     <div>
