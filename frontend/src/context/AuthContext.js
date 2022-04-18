@@ -31,7 +31,7 @@ const signin = dispatch => {
         try {
             const res = await api.post('/students/signin', { email, password })
             // update student state with response from API
-            dispatch({ type: 'signin', payload: res.data.student })
+            dispatch({ type: 'signin', payload: res.data })
         }catch(err){
             dispatch({ type: 'return_error', payload: 'User login failed' })
         }
@@ -43,7 +43,7 @@ const signup = dispatch => {
         try {
             const res = await api.post('/students/signup', { name, email, password })
             // update student state with response from API
-            dispatch({ type: 'signup', payload: res.data.student })
+            dispatch({ type: 'signup', payload: res.data })
         }catch(err){
             dispatch({ type: 'return_error', payload: 'User registration failed' })
         }

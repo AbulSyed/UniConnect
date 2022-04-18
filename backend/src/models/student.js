@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 const bcryptjs = require('bcryptjs')
-const jwt = require('jsonwebtoken')
 
 // creating student user object to be stored in the database
 const studentSchema = new mongoose.Schema({
@@ -53,7 +52,7 @@ const studentSchema = new mongoose.Schema({
 
 /*
 
-	NOTE: CODE IN LINES 63-90
+	NOTE: CODE IN LINES 63-84
 
 	The code written below has been modified and reused from a previous API I built: https://github.com/AbulSyed/TaskManagerAPI/blob/main/src/models/user.js
 
@@ -67,12 +66,6 @@ studentSchema.pre('save', async function(next){
 
 	next()
 })
-
-// generating jwt to be used on frontend
-studentSchema.methods.generateJwt = async function(){
-	const token = jwt.sign({ _id: this._id.toString() }, process.env.JWT_SECRET)
-	return token
-}
 
 // returning student object if exists & correct password is supplied
 studentSchema.statics.findStudent = async (email, password) => {

@@ -7,10 +7,9 @@ const student_signup = async (req, res) => {
     const student = new Student(req.body)
 
     try {
-        // saving student object and sending back student with jwt
+        // saving student object and sending back to client
         await student.save()
-        const jwt = await student.generateJwt()
-        res.status(201).send({ student, jwt })
+        res.status(201).send(student)
     } catch (err) {
         res.status(400).send(err)
     }
@@ -20,10 +19,9 @@ const student_signin = async (req, res) => {
     const { email, password } = req.body
 
     try {
-        // if student email exists and password matches, student object will be sent back to frontend along with jwt
+        // if student email exists and password matches, student object will be sent back to frontend
         const student = await Student.findStudent(email, password)
-        const jwt = await student.generateJwt()
-        res.status(200).send({ student, jwt })
+        res.status(200).send(student)
     } catch (err) {
         res.status(400).send(err.message)
     }
