@@ -32,7 +32,7 @@ const NewChatDialog = ({ message }) => {
 
   const getFriends = async () => {
     try {
-        const res = await api.get(`/students/connections/${state.student._id}`)
+        const res = await api.get(`/students/friends/${state.student._id}`)
         setFriends(res.data)
     }catch(err){
         console.log(err)

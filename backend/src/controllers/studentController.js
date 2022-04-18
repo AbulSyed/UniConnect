@@ -47,22 +47,22 @@ const student_get = async (req, res) => {
     }
 }
 
-// get connections of a user using their user id
-const student_connections_get = async (req, res) => {
+// get friends of a user using their user id
+const student_friends_get = async (req, res) => {
     try {
         const student = await Student.findById(req.params.id)
-        const connections = await Promise.all(
-            student.friends.map((connectionId) => {
-                return Student.findById(connectionId)
+        const allFriends = await Promise.all(
+            student.friends.map((id) => {
+                return Student.findById(id)
             })
         )
-        let connectionList = []
-        connections.map(connection => {
+        let friendList = []
+        allFriends.map(friend => {
             // only getting relevant info
-            const { _id, name, studentImage } = connection
-            connectionList.push({ _id, name, studentImage })
+            const { _id, name, studentImage } = friend
+            friendList.push({ _id, name, studentImage })
         })
-        res.status(200).send(connectionList)
+        res.status(200).send(friendList)
     } catch(err){
         res.status(400).send(err)
     }
@@ -119,7 +119,7 @@ module.exports = {
     student_signin,
     student_get_all,
     student_get,
-    student_connections_get,
+    student_friends_get,
     student_update,
     student_add_friend,
     student_remove_friend

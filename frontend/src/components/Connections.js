@@ -10,7 +10,7 @@ const Connections = () => {
 
     const getConnections = async () => {
         try {
-            const res = await api.get(`/students/connections/${state.student._id}`)
+            const res = await api.get(`/students/friends/${state.student._id}`)
             setConnections(res.data)
         }catch(err) {
             console.log(err)
@@ -24,7 +24,7 @@ const Connections = () => {
     return ( 
         <div className="connections">
             <div className="contain">
-                <h1 className="heading">Connections</h1>
+                <h1 className="heading">Friends</h1>
                 <ul className="connectionsList">
                     {   connections.length ? 
                         connections.map(connection => (
@@ -35,7 +35,7 @@ const Connections = () => {
                                 </li>
                             </Link>
                         ))
-                        : <p className="altText">No connections</p>
+                        : <p className="altText">No friends</p>
                     }
                 </ul>
             </div>
