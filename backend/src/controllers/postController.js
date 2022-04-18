@@ -50,15 +50,6 @@ const post_like = async (req, res) => {
     }
 }
 
-const post_get = async (req, res) => {
-    try {
-        const post = await Post.findById(req.params.id)
-        res.status(200).send(post)
-    } catch (err) {
-        res.status(500).send(err)
-    }
-}
-
 // get feed - (current student posts + other student posts that you are friends with)
 const post_feed = async (req, res) => {
     try {
@@ -124,7 +115,6 @@ module.exports = {
     post_delete,
     post_account,
     post_like,
-    post_get,
     post_feed,
     post_comment_create,
     post_comment_get
