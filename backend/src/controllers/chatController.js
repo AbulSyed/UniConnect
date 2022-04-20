@@ -14,6 +14,21 @@ const chat_create = async (req, res) => {
     }
 }
 
+// add new user to a chat
+const chat_add_student = async (req, res) => {
+    try {
+        const chat = await Chat.findById(req.params.chatId)
+        await chat.updateOne({ $push: 
+            { students: req.body.recipientId }
+        })
+
+        res.status(200).send(chat)
+    }catch(err){
+        res.status(400).send(err)
+    }
+}
+
+
 // get chat of a student
 const chat_get = async (req, res) => {
     try {
@@ -28,5 +43,6 @@ const chat_get = async (req, res) => {
 
 module.exports = {
     chat_create,
+    chat_add_student,
     chat_get
 }
