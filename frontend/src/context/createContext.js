@@ -1,8 +1,20 @@
+/* 
+
+  NOTE: CODE REUSED AND MODIFIED FROM A COURSE I PREVIOUSLY TOOK:
+
+  -> https://www.udemy.com/course/the-complete-react-native-and-redux-course/
+
+  LINES 19,20, 23, 24, 25 ARE MY MODIFICATIONS
+
+*/
+
 import { createContext, useReducer, useEffect } from 'react'
 
 export default (reducer, actions, initialState) => {
   const Context = createContext()
 
+  // providers used to provide data to components
+  // in index.js the <App /> component wrapper by provider
   const Provider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState, () => {
       const localData = localStorage.getItem('student')

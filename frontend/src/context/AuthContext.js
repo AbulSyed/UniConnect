@@ -1,6 +1,7 @@
 import createContext from './createContext'
 import api from '../axios/api'
 
+// reducer - function that manages changes to an object
 const authReducer = (state, action) => {
     switch(action.type){
         case 'return_error':
