@@ -34,6 +34,7 @@ const Post = ({ post }) => {
         setIsThumbsUp(!isThumbsUp);
     }
 
+    // get all comments for a post
     const getComments = async () => {
         const res = await api.get(`/posts/comments/${post._id}`)
         setComments(res.data)
@@ -42,6 +43,12 @@ const Post = ({ post }) => {
     useEffect(() => {
         getComments()
     }, [])
+
+    // delete a post
+    const handleDelete = async (id) => {
+        await api.delete(`/posts/${id}`)
+        window.location.reload()
+    }
 
     return ( 
         <div className="post">
@@ -58,7 +65,7 @@ const Post = ({ post }) => {
                     state.student._id === post.studentId ? 
 
                     <div className="delete">
-                        <Delete />
+                        <Delete onClick={ () => handleDelete(post._id) } />
                     </div> : null
                 }
             </div>
