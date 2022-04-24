@@ -36,6 +36,8 @@ const CreateEventDialog = () => {
             location: location.current.value,
             time: time.current.value,
             date: date.current.value,
+            studentName: state.student.name,
+            studentImage: state.student.studentImage,
         })
 
 		handleClose()

@@ -114,6 +114,23 @@ const student_remove_friend = async (req, res) => {
     }
 }
 
+const student_add_event = async (req, res) => {
+    try {
+        // current student id to be passed in body of request
+        const student = await Student.findById(req.body.studentId)
+
+        // add user to events array if not already in there
+        if(!student.events.includes(req.params.id)){
+            await student.updateOne({ $push: {
+                events: req.params.id
+            } })
+            res.status(200).send('Event added')
+        }
+    } catch (err) {
+        res.status(400).send(err)
+    }
+}
+
 module.exports = {
     student_signup,
     student_signin,
@@ -122,5 +139,6 @@ module.exports = {
     student_friends_get,
     student_update,
     student_add_friend,
-    student_remove_friend
+    student_remove_friend,
+    student_add_event
 }

@@ -22,6 +22,11 @@ const authReducer = (state, action) => {
                 ...state.student,
                 friends: state.student.friends.filter(friend => friend !== action.payload)
             } }
+        case 'joinEvent':
+            return { ...state, student: {
+                ...state.student,
+                events: [...state.student.events, action.payload]
+            } }
         default:
             return state
     }
@@ -73,7 +78,13 @@ const unfriend = dispatch => {
     }
 }
 
-export const { Context, Provider } = createContext(authReducer, { signin, signup, signout, friend, unfriend }, {
+const joinEvent = dispatch => {
+    return (id) => {
+        dispatch({ type: 'joinEvent', payload: id })
+    }
+}
+
+export const { Context, Provider } = createContext(authReducer, { signin, signup, signout, friend, unfriend, joinEvent }, {
     student: null,
     token: null,
     error: ''

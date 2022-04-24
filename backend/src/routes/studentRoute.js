@@ -12,5 +12,6 @@ router.get('/students/friends/:id', studentController.student_friends_get)
 router.patch('/students/:id', studentController.student_update)
 router.patch('/students/add_friend/:id', studentController.student_add_friend)
 router.patch('/students/remove_friend/:id', studentController.student_remove_friend)
+router.patch('/students/add_event/:id', studentController.student_add_event)
 
 module.exports = router

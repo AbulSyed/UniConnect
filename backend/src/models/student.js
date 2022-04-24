@@ -45,6 +45,10 @@ const studentSchema = new mongoose.Schema({
     hobby: {
       type: String,
       default: ''
+    },
+    events: {
+      type: Array,
+      default: []
     }
   }, {
 	timestamps: true

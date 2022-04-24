@@ -7,7 +7,10 @@ const event_create = async (req, res) => {
     const event = new Event({
         organiser: req.params.id,
         ...req.body,
-        attendees: req.params.id
+        attendees: {
+            studentName: req.body.studentName,
+            studentImage: req.body.studentImage
+        }
     })
 
     try {
@@ -25,7 +28,7 @@ const event_attend = async (req, res) => {
 
         await event.updateOne({ $push: 
             { attendees: {
-                studentId: req.body.studentId,
+                studentName: req.body.studentName,
                 studentImage: req.body.studentImage
             } }
         })

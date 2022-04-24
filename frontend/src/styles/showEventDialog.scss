@@ -1,0 +1,22 @@
+.showEventDialog {
+    margin: 1rem;
+}
+.showEventWrapper {
+    width: 200px;
+
+    h4, p {
+        margin: .8rem 0;
+    }
+
+    .attendees {
+        display: flex;
+    }
+
+    .studentImaeg {
+        border-radius: 50%;
+        object-fit: cover;
+        width: 2rem;
+        height: 2rem;
+        margin-right: 0.625rem;
+    }
+}
