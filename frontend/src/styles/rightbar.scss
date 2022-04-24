@@ -1,0 +1,11 @@
+.rightbar {
+    width: 25%;
+    height: calc(100vh - 3.125rem);
+    position: sticky;
+    overflow-y: scroll;
+    top: 3.125rem;
+
+    .rightbarContainer {
+        margin: 2.5rem;
+    }
+}

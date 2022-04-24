@@ -1,0 +1,33 @@
+.eventHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: rgb(38, 58, 95);
+    margin-bottom: 0.625rem;
+    font-size: .8rem;
+    text-align: center;
+}
+.eventCard {
+    color: #2c3e50;
+    height: 215px;
+    width: 245px;
+    border-radius: 10px;
+    border: 1px solid #2c3e50;
+    background-color: rgb(238, 237, 237);
+    margin-top: 20px;
+    padding: 1rem;
+
+    .cardHeader {
+        text-align: center;
+        margin-bottom: 1rem;
+        h4, p {
+            margin-bottom: .8rem;
+        }
+    }
+    .cardCenter {
+        text-align: center;
+        p {
+            margin-bottom: 1rem;
+        }
+    }
+}

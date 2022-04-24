@@ -23,19 +23,13 @@ const event_attend = async (req, res) => {
     try {
         const event = await Event.findById(req.params.id)
 
-        if(event.attendees.includes(req.body.studentId)){
-            // remove student id from event attendees array
-            await event.updateOne({ $pull: 
-                { attendees: req.body.studentId }
-            })
-            res.status(200).send('Remove attendence')
-        }else{
-            // add student id to event attendees array
-            await event.updateOne({ $push: 
-                { attendees: req.body.studentId }
-            })
-            res.status(200).send('Added attendence')
-        }
+        await event.updateOne({ $push: 
+            { attendees: {
+                studentId: req.body.studentId,
+                studentImage: req.body.studentImage
+            } }
+        })
+        res.status(200).send('Added attendence')
     }catch(err) {
         res.status(400).send()
     }

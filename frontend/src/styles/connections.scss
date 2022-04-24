@@ -1,58 +1,46 @@
-.connections {
-    width: 25%;
-    height: calc(100vh - 3.125rem);
-    position: sticky;
-    overflow-y: scroll;
-    top: 3.125rem;
+.heading {
+    color: rgb(38, 58, 95);
+    margin-bottom: 0.625rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+.connectionsList {
+    list-style: none;
 
-    .contain {
-        margin: 2.5rem;
+    .link {
+        text-decoration: none;
+        color: #000;
+    }
 
-        .heading {
+    .connectionItem {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem;
+        justify-content: space-around;
+        cursor: pointer;
+        background-color: rgb(238, 237, 237);
+        margin-bottom: 0.9rem;
+        border-radius: 0.625rem;
+        transition: all .8s;
+        
+        .connectionName {
             color: rgb(38, 58, 95);
-            margin-bottom: 0.625rem;
-            font-size: 1.5rem;
-            text-align: center;
         }
-        .connectionsList {
-            list-style: none;
 
-            .link {
-                text-decoration: none;
-                color: #000;
-            }
-
-            .connectionItem {
-                display: flex;
-                align-items: center;
-                padding: 0.5rem;
-                justify-content: space-around;
-                cursor: pointer;
-                background-color: rgb(238, 237, 237);
-                margin-bottom: 0.9rem;
-                border-radius: 0.625rem;
-                transition: all .8s;
-                
-                .connectionName {
-                    color: rgb(38, 58, 95);
-                }
-
-                &:hover {
-                    background-color: rgb(214, 214, 214);
-                }
-            }
-            .connectionImg {
-                border-radius: 50%;
-                object-fit: cover;
-                width: 2rem;
-                height: 2rem;
-                margin-right: 0.625rem;
-            }
-
-            .altText {
-                color: rgb(38, 58, 95);
-                text-align: center;
-            }
+        &:hover {
+            background-color: rgb(214, 214, 214);
         }
+    }
+    .connectionImg {
+        border-radius: 50%;
+        object-fit: cover;
+        width: 2rem;
+        height: 2rem;
+        margin-right: 0.625rem;
+    }
+
+    .altText {
+        color: rgb(38, 58, 95);
+        text-align: center;
     }
 }

@@ -1,13 +1,13 @@
 import '../styles/home.scss'
 import Main from '../components/Main'
-import Connections from '../components/Connections'
+import RightBar from '../components/RightBar'
 
 const Home = () => {
     return ( 
         <>
             <div className="body">
                 <Main />
-                <Connections />
+                <RightBar />
             </div>
         </>
      );
