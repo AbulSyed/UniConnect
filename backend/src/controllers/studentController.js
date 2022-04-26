@@ -2,6 +2,7 @@ const Student = require('../models/student')
 
 // main business logic here in controller
 
+// when a user signs up
 const student_signup = async (req, res) => {
     // creating new instance of student from form fields
     const student = new Student(req.body)
@@ -15,6 +16,7 @@ const student_signup = async (req, res) => {
     }
 }
 
+// when a user logs in
 const student_signin = async (req, res) => {
     const { email, password } = req.body
 
@@ -27,9 +29,9 @@ const student_signin = async (req, res) => {
     }
 }
 
+// getting all students
 const student_get_all = async (req, res) => {
     try {
-        // getting all students
         const students = await Student.find({})
         res.status(200).send(students)
     } catch (err) {
@@ -37,9 +39,9 @@ const student_get_all = async (req, res) => {
     }
 }
 
+// getting student by id
 const student_get = async (req, res) => {
     try {
-        // getting student by id
         const student = await Student.findById(req.params.id)
         res.status(200).send(student)
     } catch (err) {
@@ -52,7 +54,7 @@ const student_friends_get = async (req, res) => {
     try {
         const student = await Student.findById(req.params.id)
         const allFriends = await Promise.all(
-            student.friends.map((id) => {
+            student.friends.map(id => {
                 return Student.findById(id)
             })
         )
@@ -68,9 +70,9 @@ const student_friends_get = async (req, res) => {
     }
 }
 
+// updating student by id
 const student_update = async (req, res) => {
     try {
-        // updating student by id
         const student = await Student.findByIdAndUpdate(req.params.id, req.body, {
             new: true
         })
@@ -80,6 +82,7 @@ const student_update = async (req, res) => {
     }
 }
 
+// adding friends
 const student_add_friend = async (req, res) => {
     try {
         // current student id to be passed in body of request
@@ -97,6 +100,7 @@ const student_add_friend = async (req, res) => {
     }
 }
 
+// removing friends
 const student_remove_friend = async (req, res) => {
     try {
         // current student id to be passed in body of request
@@ -114,6 +118,7 @@ const student_remove_friend = async (req, res) => {
     }
 }
 
+// add event to students events array
 const student_add_event = async (req, res) => {
     try {
         // current student id to be passed in body of request

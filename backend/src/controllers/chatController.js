@@ -14,7 +14,7 @@ const chat_create = async (req, res) => {
     }
 }
 
-// add new user to a chat
+// add a user to a chat - for group chatting
 const chat_add_student = async (req, res) => {
     try {
         const chat = await Chat.findById(req.params.chatId)
@@ -27,7 +27,6 @@ const chat_add_student = async (req, res) => {
         res.status(400).send(err)
     }
 }
-
 
 // get chat of a student
 const chat_get = async (req, res) => {

@@ -56,7 +56,7 @@ const studentSchema = new mongoose.Schema({
 
 /*
 
-	NOTE: CODE IN LINES 63-84
+	NOTE: CODE IN LINES 66-87
 
 	The code written below has been modified and reused from a previous API I built: https://github.com/AbulSyed/TaskManagerAPI/blob/main/src/models/user.js
 

@@ -62,10 +62,10 @@ const post_feed = async (req, res) => {
             student.friends.map(curr => {
                 return Post.find({ studentId: curr })
             })
-      )
-      res.status(200).send(studentPosts.concat(...postOfFriends))
+        )
+        res.status(200).send(studentPosts.concat(...postOfFriends))
     } catch (err) {
-      res.status(400).send(err)
+        res.status(400).send(err)
     }
 }
 
@@ -99,7 +99,7 @@ const post_comment_create = async (req, res) => {
     }
 }
 
-// add comment
+// get comments for a post
 const post_comment_get = async (req, res) => {
     try {
         const post = await Post.findById(req.params.id)

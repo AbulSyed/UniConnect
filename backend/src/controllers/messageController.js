@@ -1,6 +1,7 @@
 const Message = require('../models/message')
 const Student = require('../models/student')
 
+// create a new message
 const messsage_create = async (req, res) => {
     try {
         const student = await Student.findById(req.body.dispatcherId)
@@ -17,6 +18,7 @@ const messsage_create = async (req, res) => {
     }
 }
 
+// getting messages
 const message_get = async (req, res) => {
     try {
         const msgs = await Message.find({
