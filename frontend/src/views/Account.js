@@ -1,16 +1,16 @@
 import '../styles/account.scss'
-import Main from '../components/Main';
-import Bio from '../components/Bio';
+import Main from '../components/Main'
+import Bio from '../components/Bio'
 import ChangeImageDialog from '../components/ChangeImageDialog'
 import { Add, Remove } from '@material-ui/icons'
 import { useContext, useState, useEffect } from 'react'
 import api from '../axios/api'
-import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom'
 import { Context as AuthContext } from '../context/AuthContext'
 
 const Account = () => {
     const [student, setStudent] = useState([])
-    const { id } = useParams();
+    const { id } = useParams()
     const { state, friend, unfriend } = useContext(AuthContext)
 
     // get student

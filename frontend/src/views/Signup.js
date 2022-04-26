@@ -5,7 +5,7 @@ import { useRef, useContext } from 'react'
 import { Context as AuthContext } from '../context/AuthContext'
 
 const Signup = () => {
-    const { signup } = useContext(AuthContext);
+    const { state, signup } = useContext(AuthContext)
 
     const name = useRef()
     const email = useRef()
@@ -29,6 +29,7 @@ const Signup = () => {
                 <input type="text" required placeholder="name" ref={ name } />
                 <input type="email" required placeholder="email" ref={ email } />
                 <input type="password" required placeholder="password" ref={ password } />
+                <div className="err">{ state.errMsg }</div>
                 <button>
                     <Input />
                 </button>

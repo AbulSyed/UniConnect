@@ -14,6 +14,7 @@ const Chat = () => {
     const [messages, setMessages] = useState([])
     const [newMessage, setNewMessage] = useState('')
 
+    // get all chats for logged in user
     const getChat = async () => {
         try {
             const res = await api.get(`/chat/${state.student._id}`)
@@ -27,6 +28,7 @@ const Chat = () => {
         getChat()
     }, [state.student._id])
 
+    // get messages for a chat
     const getMessages = async () => {
         try {
             const res = await api.get(`/messages/${currChat._id}`)
@@ -40,12 +42,15 @@ const Chat = () => {
         getMessages()
     }, [currChat?._id])
 
+    // send a message
     const handleSend = async () => {
+        // save to db
         const res = await api.post('/messages', {
             chatId: currChat._id,
             dispatcherId: state.student._id,
             messageContent: newMessage
         })
+        // update user interface
         setMessages([...messages, res.data])
         setNewMessage('')
     }

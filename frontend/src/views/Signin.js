@@ -1,11 +1,11 @@
 import '../styles/auth.scss'
 import { Input } from '@material-ui/icons'
 import { Link } from 'react-router-dom'
-import { useRef, useContext } from 'react';
-import { Context as AuthContext } from '../context/AuthContext';
+import { useRef, useContext } from 'react'
+import { Context as AuthContext } from '../context/AuthContext'
 
 const Signin = () => {
-    const { state, signin } = useContext(AuthContext);
+    const { state, signin } = useContext(AuthContext)
 
     const email = useRef()
     const password = useRef()

@@ -34,6 +34,7 @@ const AddPost = () => {
     const handlePostSubmit = async (e) => {
         e.preventDefault()
 
+        // save image to firebase storage first and get its url - used in line 42
         const res = await uploadImage(file, state.student._id)
         await api.post('/posts', {
             studentId: state.student._id,
