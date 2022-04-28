@@ -4,7 +4,7 @@
 
   -> https://www.udemy.com/course/the-complete-react-native-and-redux-course/
 
-  LINES 19,20, 23, 24, 25 ARE MY MODIFICATIONS
+  LINES 19-26 ARE MY ADDITIONS
 
 */
 
