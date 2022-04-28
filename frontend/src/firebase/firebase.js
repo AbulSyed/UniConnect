@@ -6,6 +6,9 @@
 
     CODE USED TO SETUP FIREBASE CONNECTION AND ACCESS TO FIREBASE STORAGE
 
+    The only modifications I made here is the code inside the firebaseConfig object
+    Lines 20-25
+
 */
 
 // Import the functions you need from the SDKs you need
