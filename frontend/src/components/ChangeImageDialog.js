@@ -33,7 +33,7 @@ const ChangeImageDialog = ({ imageType }) => {
 
     // upload image to firebase then get back image url
     // code reuse with modification from previous personal project https://github.com/AbulSyed/post-app/blob/master/post-client/src/store/modules/images.js
-    // lines 37, 38, 40 & 46 are my additions. redundant code was also removed
+    // lines 37, 38, 40 & 46 was altered for this project. redundant code was also removed
     const uploadImage = async (file, id) => {
         if(!file) return
 
