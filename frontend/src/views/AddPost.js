@@ -15,7 +15,9 @@ const AddPost = () => {
     const [file, setFile] = useState(null)
 
     // upload image to firebase then get back image url
-    // code reuse with modification from previous personal project https://github.com/AbulSyed/post-app/blob/master/post-client/src/store/modules/images.js
+    // code reused with modification from previous personal project https://github.com/AbulSyed/post-app/blob/master/post-client/src/store/modules/images.js
+    // lines 21, 22, 24 & 30 are my additions. redundant code was also removed
+
     const uploadImage = async (file, id) => {
         if(!file) return
 

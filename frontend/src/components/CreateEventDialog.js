@@ -1,3 +1,13 @@
+/*
+
+	Code modified from an existing dialog template from Material UI
+	
+	-> https://mui.com/material-ui/react-dialog/
+
+	Lines 21-29, 63-69, 81-92 were reused. Everything else is code written by the author
+
+*/
+
 import { Add } from '@material-ui/icons'
 import { useRef, useState, useContext } from 'react';
 import Button from '@material-ui/core/Button';

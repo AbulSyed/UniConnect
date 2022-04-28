@@ -1,3 +1,13 @@
+/*
+
+	Code modified from an existing dialog template from Material UI
+	
+	-> https://mui.com/material-ui/react-dialog/
+
+	Lines 21, 24-30, 78-84, 91-92 were reused. Everything else is code written by the author
+
+*/
+
 import { Add } from '@material-ui/icons'
 import { useState, useContext } from 'react';
 import Button from '@material-ui/core/Button';
@@ -23,6 +33,7 @@ const ChangeImageDialog = ({ imageType }) => {
 
     // upload image to firebase then get back image url
     // code reuse with modification from previous personal project https://github.com/AbulSyed/post-app/blob/master/post-client/src/store/modules/images.js
+    // lines 37, 38, 40 & 46 are my additions. redundant code was also removed
     const uploadImage = async (file, id) => {
         if(!file) return
 

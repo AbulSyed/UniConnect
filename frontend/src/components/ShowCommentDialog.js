@@ -1,3 +1,13 @@
+/*
+
+	Code modified from an existing dialog template from Material UI
+	
+	-> https://mui.com/material-ui/react-dialog/
+
+	Lines 18-26, 35-41, 51-52 were reused. Everything else is code written by the author
+
+*/
+
 import '../styles/commentDialog.scss'
 import { useState } from 'react';
 import Button from '@material-ui/core/Button';

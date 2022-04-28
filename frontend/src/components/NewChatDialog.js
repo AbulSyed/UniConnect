@@ -1,3 +1,13 @@
+/*
+
+	Code modified from an existing dialog template from Material UI
+	
+	-> https://mui.com/material-ui/react-dialog/
+
+	Lines 20, 25-27, 61-67, 83-84 were reused. Everything else is code written by the author
+
+*/
+
 import '../styles/newChatDialog.scss'
 import React, { useState, useEffect, useContext } from 'react'
 import Button from '@material-ui/core/Button'
@@ -19,8 +29,8 @@ const NewChatDialog = ({ message }) => {
   const handleClose = async (recipientId) => {
     if(state.student._id && typeof recipientId == 'string'){
         const res = await api.post('/chat', {
-        "dispatcherId": state.student._id,
-        "recipientId": recipientId
+          "dispatcherId": state.student._id,
+          "recipientId": recipientId
         })
         console.log(res)
     }
