@@ -3,6 +3,7 @@ import { useState, useContext, useEffect } from 'react'
 import api from '../axios/api'
 import { Context as AuthContext } from '../context/AuthContext'
 import NewChatDialog from '../components/NewChatDialog'
+import AddUserChat from '../components/AddUserChat'
 import { Send } from '@material-ui/icons'
 import StudentChat from '../components/StudentChat'
 import { formatDistanceToNow } from 'date-fns'
@@ -88,6 +89,7 @@ const Chat = () => {
 
                             <div className="messageDiv">
                                 <textarea className="messageDivInput" placeholder="Type a message..." onChange={ e => setNewMessage(e.target.value) } value={ newMessage } />
+                                <AddUserChat message={ "+" } chat={ currChat } />
                                 <button className="messageDivBtn" onClick={ handleSend }><Send /></button>
                             </div>
 

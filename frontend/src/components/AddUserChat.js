@@ -4,7 +4,7 @@
 	
 	-> https://mui.com/material-ui/react-dialog/
 
-	Lines 20, 25-27, 60-66, 82-83 were reused. Everything else is code written by the author
+	Lines 20, 25-27, 59-65, 81-82 were reused. Everything else is code written by the author
 
 */
 
@@ -16,7 +16,7 @@ import DialogContent from '@material-ui/core/DialogContent'
 import api from '../axios/api'
 import { Context as AuthContext } from '../context/AuthContext'
 
-const NewChatDialog = ({ message }) => {
+const AddUserChat = ({ message, chat }) => {
   const [open, setOpen] = useState(false)
   const [friends, setFriends] = useState([])
 
@@ -28,8 +28,7 @@ const NewChatDialog = ({ message }) => {
 
   const handleClose = async (recipientId) => {
     if(state.student._id && typeof recipientId == 'string'){
-        await api.post('/chat', {
-          "dispatcherId": state.student._id,
+        await api.patch(`chat/add/${chat._id}`, {
           "recipientId": recipientId
         })
     }
@@ -65,7 +64,7 @@ const NewChatDialog = ({ message }) => {
       >
         <DialogContent>
           <ul className="list">
-            <p className="listText">Click friend, to start a new chat.</p>
+            <p className="listText">Click friend, to add to the chat.</p>
             {
               friends.length ? <>
 
@@ -85,4 +84,4 @@ const NewChatDialog = ({ message }) => {
   );
 }
 
-export default NewChatDialog;
+export default AddUserChat;
