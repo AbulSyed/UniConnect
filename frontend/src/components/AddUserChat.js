@@ -4,7 +4,7 @@
 	
 	-> https://mui.com/material-ui/react-dialog/
 
-	Lines 20, 25-27, 59-65, 81-82 were reused. Everything else is code written by the author
+	Lines 20, 25-27, 61-67, 83-84 were reused. Everything else is code written by the author
 
 */
 
@@ -26,6 +26,7 @@ const AddUserChat = ({ message, chat }) => {
     setOpen(true)
   };
 
+  // add user to chat (API req) when modal is closed
   const handleClose = async (recipientId) => {
     if(state.student._id && typeof recipientId == 'string'){
         await api.patch(`chat/add/${chat._id}`, {
@@ -38,6 +39,7 @@ const AddUserChat = ({ message, chat }) => {
     }
   }
 
+  // get user friends to display in modal
   const getFriends = async () => {
     try {
         const res = await api.get(`/students/friends/${state.student._id}`)

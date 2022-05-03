@@ -10,6 +10,7 @@ const Events = () => {
     const [events, setEvents] = useState([])
     const { state, joinEvent } = useContext(AuthContext)
 
+    // getting all events
     const getEvents = async () => {
         try {
             const res = await api.get(`/events/`)

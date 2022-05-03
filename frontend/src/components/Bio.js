@@ -42,6 +42,7 @@ const Bio = ({ student }) => {
     return ( 
         <>
             {
+                // show form if edit icon is clicked
                 editClicked ? 
                 <div className="bio-form">
                     <form className="form">
