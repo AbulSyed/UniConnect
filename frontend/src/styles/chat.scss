@@ -1,3 +1,18 @@
+/*
+
+    A online tutorial was followed to write the style code written below
+
+    Link to online tutorial: https://www.youtube.com/watch?v=HggSXt1Hzfk&t
+    GitHub link: https://github.com/safak/youtube/blob/chat-app/client/src/pages/messenger/messenger.css
+
+    This tutorial was followed as a guidance and heavy modifications were made
+
+    The tutorial used CSS, while here I used SCSS to write the styling
+
+    All the class names were changed and most of the styling was adapted for my app
+
+*/
+
 .chat {
     display: flex;
     max-width: 1300px;
@@ -24,8 +39,8 @@
 
             .mainChatMessage {
                 height: calc(100vh - 120px);
-                overflow-y: scroll;
                 padding-right: 0.7rem;
+                overflow-y: scroll;
 
                 .mainChatMessages {
                     display: flex;
@@ -49,7 +64,7 @@
                     .messageImage {
                         width: 2rem;
                         height: 2rem;
-                        border-radius: 50%;
+                        border-radius: 49%;
                         object-fit: cover;
                         margin-right: .7rem;
                     }

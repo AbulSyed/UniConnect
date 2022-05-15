@@ -57,6 +57,20 @@ const Chat = () => {
     }
 
     return ( 
+
+        /*
+
+            A online tutorial was followed to help build the JSX code written below
+
+            Link to online tutorial: https://www.youtube.com/watch?v=HggSXt1Hzfk&t
+            GitHub link: https://github.com/safak/youtube/blob/chat-app/client/src/pages/messenger/Messenger.jsx
+
+            This tutorial was followed as a guidance and heavy modifications were made
+
+            Close to all the code written in lines 74-124 is different to the code written in the tutorial
+        
+        */
+
         <div className="chat">
             <div className="existingChats">
                 {

@@ -17,11 +17,11 @@
             align-items: center;
 
             .postFormImg {
+                object-fit: cover;
                 margin-right: 0.625rem;
                 width: 3.125rem;
                 height: 3.125rem;
-                border-radius: 50%;
-                object-fit: cover;
+                border-radius: 49%;
             }
             
             .posted-by {
@@ -29,7 +29,7 @@
             }
         }
 
-        .postDate {
+        .post-date {
             color: gray;
             font-size: .8rem;
         }
@@ -52,7 +52,7 @@
     .post-text {
         color: gray;
         padding: .7rem 0;
-        font-size: .8rem;
+        font-size: 1rem;
         font-weight: 500;
     }
     .post-footer {

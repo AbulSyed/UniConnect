@@ -59,7 +59,7 @@ const Post = ({ post }) => {
                     </Link>
                     <h3 className="posted-by">{ student.name }</h3>
                 </div>
-                <p className="postDate">{ formatDistanceToNow(new Date(post.createdAt), { addSuffix: true }) }</p>
+                <p className="post-date">{ formatDistanceToNow(new Date(post.createdAt), { addSuffix: true }) }</p>
                 {/* show delete icon, only if users owns the post */}
                 {
                     state.student._id === post.studentId ? 

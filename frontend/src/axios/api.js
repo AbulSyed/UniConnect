@@ -8,8 +8,8 @@ import axios from 'axios'
 
 export default axios.create({
   // dev env
-  // baseURL: 'http://localhost:8080/api',
+  baseURL: 'http://localhost:8080/api',
 
   // production env
-  baseURL: 'https://syed-uniconnect-api.herokuapp.com/api',
+  // baseURL: 'https://syed-uniconnect-api.herokuapp.com/api',
 })
