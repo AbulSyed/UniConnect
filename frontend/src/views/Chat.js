@@ -12,8 +12,8 @@ const Chat = () => {
     const { state } = useContext(AuthContext)
     const [chat, setChat] = useState([])
     const [currChat, setCurrChat] = useState(null)
-    const [messages, setMessages] = useState([])
-    const [newMessage, setNewMessage] = useState('')
+    const [msgs, setMsgs] = useState([])
+    const [newMsg, setNewMsg] = useState('')
 
     // get all chats for logged in user
     const getChat = async () => {
@@ -30,17 +30,17 @@ const Chat = () => {
     }, [state.student._id])
 
     // get messages for a chat
-    const getMessages = async () => {
+    const getMsgs = async () => {
         try {
             const res = await api.get(`/messages/${currChat._id}`)
-            setMessages(res.data)
+            setMsgs(res.data)
         } catch (err) {
             console.log(err)            
         }
     }
 
     useEffect(() => {
-        getMessages()
+        getMsgs()
     }, [currChat?._id])
 
     // send a message
@@ -49,11 +49,11 @@ const Chat = () => {
         const res = await api.post('/messages', {
             chatId: currChat._id,
             dispatcherId: state.student._id,
-            messageContent: newMessage
+            messageContent: newMsg
         })
         // update user interface
-        setMessages([...messages, res.data])
-        setNewMessage('')
+        setMsgs([...msgs, res.data])
+        setNewMsg('')
     }
 
     return ( 
@@ -75,7 +75,7 @@ const Chat = () => {
 
                             <div className="mainChatMessage">
                                 {
-                                    messages.map(message => (
+                                    msgs.map(message => (
                                         <div className={ message.dispatcherId == state.student._id ? 'mainChatMessages' : 'mainChatMessages other' } key={ message._id }>
                                             <div className="messageImgAndText">
                                                 <img className="messageImage" src={ message.studentImage } alt="" />
@@ -88,7 +88,7 @@ const Chat = () => {
                             </div>
 
                             <div className="messageDiv">
-                                <textarea className="messageDivInput" placeholder="Type a message..." onChange={ e => setNewMessage(e.target.value) } value={ newMessage } />
+                                <textarea className="messageDivInput" placeholder="Type a message..." onChange={ e => setNewMsg(e.target.value) } value={ newMsg } />
                                 <AddUserChat message={ "+" } chat={ currChat } />
                                 <button className="messageDivBtn" onClick={ handleSend }><Send /></button>
                             </div>

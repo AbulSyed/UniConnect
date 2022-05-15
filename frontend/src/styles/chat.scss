@@ -19,8 +19,8 @@
 
         .mainChatContainer {
             display: flex;
-            flex-direction: column;
             justify-content: space-between;
+            flex-direction: column;
 
             .mainChatMessage {
                 height: calc(100vh - 120px);
