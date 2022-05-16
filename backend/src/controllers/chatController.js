@@ -1,5 +1,15 @@
 const Chat = require('../models/chat')
 
+/*
+
+    A online tutorial as a guidance to help write the functions chat_create & chat_get
+    Both functions have been heavily modified for this app
+
+    Link to online tutorial: https://www.youtube.com/watch?v=HggSXt1Hzfk&t
+    GitHub link: https://github.com/safak/youtube/blob/chat-app/api/routes/conversations.js
+
+*/
+
 // new chat
 const chat_create = async (req, res) => {
     const chat = new Chat({

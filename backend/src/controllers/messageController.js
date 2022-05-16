@@ -1,6 +1,16 @@
 const Message = require('../models/message')
 const Student = require('../models/student')
 
+/*
+
+    A online tutorial as a guidance to help write the functions messsage_create & message_get
+    Siginificant changes have been made for both functions
+
+    Link to online tutorial: https://www.youtube.com/watch?v=HggSXt1Hzfk&t
+    GitHub link: https://github.com/safak/youtube/blob/chat-app/api/routes/messages.js
+
+*/
+
 // create a new message
 const messsage_create = async (req, res) => {
     try {

@@ -8,6 +8,19 @@ import { Send } from '@material-ui/icons'
 import StudentChat from '../components/StudentChat'
 import { formatDistanceToNow } from 'date-fns'
 
+/*
+
+    A online tutorial was followed to help write the code to get this page working
+
+    Link to online tutorial: https://www.youtube.com/watch?v=HggSXt1Hzfk&t
+    GitHub link: https://github.com/safak/youtube/blob/chat-app/client/src/pages/messenger/Messenger.jsx
+
+    This tutorial was followed as a guidance and heavy modifications were made
+
+    Close to all the code written in this page is different to the code written in the tutorial
+
+*/
+
 const Chat = () => {
     const { state } = useContext(AuthContext)
     const [chat, setChat] = useState([])
@@ -57,19 +70,6 @@ const Chat = () => {
     }
 
     return ( 
-
-        /*
-
-            A online tutorial was followed to help build the JSX code written below
-
-            Link to online tutorial: https://www.youtube.com/watch?v=HggSXt1Hzfk&t
-            GitHub link: https://github.com/safak/youtube/blob/chat-app/client/src/pages/messenger/Messenger.jsx
-
-            This tutorial was followed as a guidance and heavy modifications were made
-
-            Close to all the code written in lines 74-124 is different to the code written in the tutorial
-        
-        */
 
         <div className="chat">
             <div className="existingChats">
