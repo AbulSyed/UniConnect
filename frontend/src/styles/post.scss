@@ -1,3 +1,5 @@
+@import 'mixins.scss';
+
 .post {
     padding: 2rem;
     margin: 1.5rem 0;
@@ -7,25 +9,18 @@
     
     .post-toolbar {
         margin-bottom: 1rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        @include flex-between-center;
 
         .img-name {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            @include flex-between-center;
 
             .postFormImg {
-                object-fit: cover;
+                @include image-large-round;
                 margin-right: 0.625rem;
-                width: 3.125rem;
-                height: 3.125rem;
-                border-radius: 49%;
             }
             
             .posted-by {
-                color: rgb(38, 58, 95);
+                @include color-blue;
             }
         }
 
@@ -55,9 +50,7 @@
         font-weight: 500;
     }
     .post-footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        @include flex-between-center;
 
         .like {
             cursor: pointer;

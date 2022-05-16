@@ -1,3 +1,5 @@
+@import 'mixins.scss';
+
 .showEventDialog {
     margin: 1rem;
 }
@@ -13,10 +15,7 @@
     }
 
     .studentImaeg {
-        border-radius: 49%;
-        object-fit: cover;
-        width: 2rem;
-        height: 2rem;
+        @include image-small-round;
         margin-right: 0.625rem;
     }
 }

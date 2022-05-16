@@ -1,13 +1,13 @@
+@import 'mixins.scss';
+
 .studentChat {
+    @include flex-center;
     width: 70%;
-    display: flex;
-    align-items: center;
     margin-bottom: 1rem;
     background-color: rgb(245, 240, 240);
     padding: 0.625rem;
     border-radius: 0.625rem;
-    cursor: pointer;
-    transition: all .5s;
+    @include hover-transition;
 
     &:hover {
         background-color: rgb(228, 228, 228);;
@@ -15,14 +15,10 @@
 }
 
 .studentGroupChat {
-    display: flex;
-    align-items: center;
+    @include flex-center;
 }
 
 .studentChatImg {
-    object-fit: cover;
+    @include image-med-round;
     margin: 0 .5rem;
-    border-radius: 49%;
-    width: 2.5rem;
-    height: 2.5rem;
 }

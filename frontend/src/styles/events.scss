@@ -1,14 +1,14 @@
+@import 'mixins.scss';
+
 .eventHeader {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    color: rgb(38, 58, 95);
+    @include flex-around-center;
+    @include color-blue;
     margin-bottom: 0.625rem;
     font-size: .8rem;
     text-align: center;
 }
 .eventCard {
-    color: #2c3e50;
+    @include color-blue;
     height: 180px;
     width: 245px;
     border-radius: 10px;

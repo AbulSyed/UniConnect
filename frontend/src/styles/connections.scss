@@ -1,5 +1,7 @@
+@import 'mixins.scss';
+
 .heading {
-    color: rgb(38, 58, 95);
+    @include color-blue;
     margin-bottom: 0.625rem;
     font-size: 1.5rem;
     text-align: center;
@@ -13,18 +15,15 @@
     }
 
     .connectionItem {
-        display: flex;
-        align-items: center;
+        @include flex-around-center;
         padding: 0.5rem;
-        justify-content: space-around;
-        cursor: pointer;
         background-color: rgb(238, 237, 237);
         margin-bottom: 0.9rem;
         border-radius: 0.625rem;
-        transition: all .8s;
+        @include hover-transition;
         
         .connectionName {
-            color: rgb(38, 58, 95);
+            @include color-blue;
         }
 
         &:hover {
@@ -32,14 +31,11 @@
         }
     }
     .connectionImg {
-        border-radius: 49%;
-        object-fit: cover;
-        width: 2rem;
-        height: 2rem;
+        @include image-small-round;
     }
 
     .altText {
-        color: rgb(38, 58, 95);
+        @include color-blue;
         text-align: center;
     }
 }

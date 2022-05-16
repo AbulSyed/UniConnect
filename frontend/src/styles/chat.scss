@@ -12,6 +12,7 @@
     All the class names were changed and most of the styling was adapted for my app
 
 */
+@import 'mixins.scss';
 
 .chat {
     display: flex;
@@ -22,7 +23,7 @@
     .existingChats {
         flex: 3;
         padding: 0.7rem;
-        color: rgb(38, 58, 95);
+        @include color-blue;
         font-weight: 700;
         margin-top: 1rem;
     }
@@ -43,8 +44,7 @@
                 overflow-y: scroll;
 
                 .mainChatMessages {
-                    display: flex;
-                    flex-direction: column;
+                    @include flex-column;
                     margin-top: 1.25rem;
 
                     &.other {
@@ -58,14 +58,10 @@
                 }
 
                 .messageImgAndText {
-                    display: flex;
-                    align-items: center;
+                    @include flex-center;
 
                     .messageImage {
-                        width: 2rem;
-                        height: 2rem;
-                        border-radius: 49%;
-                        object-fit: cover;
+                        @include image-small-round;
                         margin-right: .7rem;
                     }
                     .messageText {
@@ -103,8 +99,7 @@
                     border-radius: 0.3rem;
                     background-color: #333897;
                     color: #fff;
-                    cursor: pointer;
-                    transition: all .6s;
+                    @include hover-transition;
 
                     &:hover {
                         background-color: #505392;

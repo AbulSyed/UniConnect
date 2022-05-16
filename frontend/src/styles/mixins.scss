@@ -1,0 +1,63 @@
+// This file contains reusable style code
+
+// colors
+@mixin color-blue {
+    color: rgb(38, 58, 95);
+}
+
+// layout
+@mixin flex-between-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@mixin flex-around-center {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+@mixin flex-center-column {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+}
+
+// hovering with cursor
+@mixin hover-transition {
+    cursor: pointer;
+    transition: all .6s;
+}
+
+// image styles
+@mixin image-small-round {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+@mixin image-med-round {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+@mixin image-large-round {
+    width: 3.125rem;
+    height: 3.125rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+@mixin image-largest-round {
+    height: 9.4rem;
+    width: 9.4rem;
+    object-fit: cover;
+    border-radius: 49%;
+}

@@ -8,11 +8,11 @@
     Alot of changes were made hence most style code here is different to code in above link
 
 */
+@import 'mixins.scss';
 
 .auth {
     background-color: #fafafa;
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
     height: 91vh;
 
     .link {
@@ -43,8 +43,7 @@
     
     form {
         max-width: 800px;
-        display: flex;
-        flex-direction: column;
+        @include flex-column;
         flex: 1;
         margin-left: 17.2rem;
         padding: 40px;
@@ -72,8 +71,7 @@
             padding: .8rem;
             border: none;
             border-radius: 8px;
-            transition: all .8s;
-            cursor: pointer;
+            @include hover-transition;
 
             &:hover {
                 background: rgb(109, 108, 108);

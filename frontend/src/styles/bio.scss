@@ -1,3 +1,5 @@
+@import 'mixins.scss';
+
 .bio {
     margin-top: 4rem;
     padding: 1rem;
@@ -15,8 +17,7 @@
         left: 352px;
         top: 5px;
         color: gray;
-        cursor: pointer;
-        transition: all .7s;
+        @include hover-transition;
 
         &:hover {
             color: rgb(109, 109, 109);
@@ -30,8 +31,7 @@
 
 .bio-form {
     .form {
-        display: flex;
-        flex-direction: column;
+        @include flex-column;
 
         input {
             padding: .5rem;
@@ -44,11 +44,10 @@
             border-radius: .3rem;
             width: 225px;
             border: none;
-            cursor: pointer;
             font-weight: 500;
             padding: .4rem;
             color: rgb(255, 255, 255);
-            transition: all .6s;
+            @include hover-transition;
 
             &:hover {
                 background-color: rgb(3, 59, 182);

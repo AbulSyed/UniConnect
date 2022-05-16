@@ -1,3 +1,5 @@
+@import 'mixins.scss';
+
 .commentInput {
     background: rgb(238, 238, 238);
     border: 2px solid rgb(221, 221, 221);
@@ -9,19 +11,15 @@
 
 .comments {
     .comment {
+        @include flex-center;
         background-color: rgb(238, 237, 237);
-        display: flex;
-        align-items: center;
         border-radius: .8rem;
         padding: .8rem;
         margin-bottom: 1rem;
 
         .user-img {
-            border-radius: 49%;
             margin: 0 .8rem;
-            height: 2rem;
-            width: 2rem;
-            object-fit: cover;
+            @include image-small-round;
         }
     }
 }

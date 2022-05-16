@@ -8,19 +8,19 @@
     Alot of changes were made hence most style code here is different to code in above link
 
 */
+@import 'mixins.scss';
 
 .heading-1 {
   display: flex;
   justify-content: center;
   margin-top: 7rem;
   align-self: center;
-  color: rgb(38, 58, 95);
+  @include color-blue;
   font-weight: 500;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
+  @include flex-column;
   margin: 2.5rem auto;
   width: 75%;
 
@@ -40,9 +40,8 @@ form {
     margin: .75rem 0;
   }
   button {
+    @include hover-transition;
     padding: .25rem 0;
-    cursor: pointer;
-    transition: all .6s;
     border: none;
     border-radius: 5px;
 
