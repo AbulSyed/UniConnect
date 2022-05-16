@@ -4,13 +4,13 @@
     @include flex-center;
     width: 70%;
     margin-bottom: 1rem;
-    background-color: rgb(245, 240, 240);
+    background: rgb(245, 240, 240);
     padding: 0.625rem;
     border-radius: 0.625rem;
     @include hover-transition;
 
     &:hover {
-        background-color: rgb(228, 228, 228);;
+        background: rgb(228, 228, 228);;
     }
 }
 

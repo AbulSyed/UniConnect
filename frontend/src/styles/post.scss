@@ -5,7 +5,7 @@
     margin: 1.5rem 0;
     background: #fff;
     border-radius: 0.4rem;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    @include box-shadow-2;
     
     .post-toolbar {
         margin-bottom: 1rem;

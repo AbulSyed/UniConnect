@@ -5,11 +5,24 @@
     color: rgb(38, 58, 95);
 }
 
+// box shadows
+@mixin box-shadow-1 {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+@mixin box-shadow-2 {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
 // layout
 @mixin flex-between-center {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+@mixin flex-between-column {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 @mixin flex-around-center {
     display: flex;

@@ -34,9 +34,7 @@
         padding: 0.7rem;
 
         .mainChatContainer {
-            display: flex;
-            justify-content: space-between;
-            flex-direction: column;
+            @include flex-between-column;
 
             .mainChatMessage {
                 height: calc(100vh - 120px);
